@@ -10,10 +10,10 @@ export default function sketch(p){
       p.background('#FFF7E8');
       p.textSize(window.innerWidth/50);
       p.textFont('Vollkorn');
-      p.text('Blueberries and their Physiology', 170, 190, 170, 170);
-      p.text('01', 70, 190, 170, 170);
+      p.text('Blueberries and their Physiology', 170, 200, 160, 170);
+      p.text('01', 70, 200, 170, 170);
       p.textSize(window.innerWidth/85);
-      p.text(story, window.innerWidth - 700, 190, 540, 600);
+      p.text(story, window.innerWidth - 700, 200, 500, 640);
     }
 
     p.draw = () => {
@@ -26,12 +26,12 @@ export default function sketch(p){
       }
 
       img.updatePixels();
-      p.image(img, 17, 50);
-      p.image(img, 170, 50);
-      p.image(img, window.innerWidth - 700, 50);
+      p.image(img, 17, 60);
+      p.image(img, 170, 60);
+      p.image(img, window.innerWidth - 700, 60);
 
       p.noFill();
-      p.stroke(0, 90, 102, 50);
+      p.stroke(0, 90, 102, 60);
       p.ellipse(window.innerWidth/3-10, 100, p.mouseX/5, p.mouseX/5);
 
       //ellipse();
