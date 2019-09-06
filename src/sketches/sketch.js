@@ -27,8 +27,8 @@ export default function sketch(p){
 
       img.updatePixels();
       p.image(img, 17, 50);
-      p.image(img, 120, 50);
-      p.image(img, window.innerWidth - 760, 50);
+      p.image(img, 170, 50);
+      p.image(img, window.innerWidth - 700, 50);
 
       p.noFill();
       p.stroke(0, 90, 102, 50);
