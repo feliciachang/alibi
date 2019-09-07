@@ -24,7 +24,8 @@ class App extends Component {
       <div>
       <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet"/>
       <P5Wrapper sketch={home} color={this.state.color}></P5Wrapper>
-      <P5Wrapper sketch={sketch} color={this.state.color}></P5Wrapper>
+      <P5Wrapper sketch={sketch} color={this.state.color}></P5Wrapper>  
+      <P5Wrapper sketch={newyork} color={this.state.color}></P5Wrapper>
       </div>
     );
   }

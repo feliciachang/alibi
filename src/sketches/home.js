@@ -45,6 +45,7 @@ export default function home(p) {
     p.text(description, 100, margin*4-80);
   }
   let count = 0;
+
   p.draw = () => {
     if(count === 510){
       count = 0;
