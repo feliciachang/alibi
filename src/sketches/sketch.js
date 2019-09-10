@@ -17,20 +17,26 @@ export default function sketch(p){
       p.text('move mouse to interact', window.innerWidth - 80, 60, 40, 640);
     }
 
-    p.draw = () => {
-      let img = p.createImage(500, window.innerWidth/2);
-      img.loadPixels();
-      for (let i = 0; i < img.width/10; i++) {
-        for (let j = 0; j < img.height/10; j++) {
-          img.set(i, j, p.color(0, 90, 102, (i % img.width)));
-        }
-      }
+    p.windowResized = () => {
+      p.resizeCanvas(window.innerWidth, window.innerHeight);
+    }
 
-      img.updatePixels();
-      p.image(img, 17, 60);
-      p.image(img, 170, 60);
-      p.image(img, window.innerWidth - 650, 60);
-      
+    // let img = p.createImage(500, window.innerWidth/2);
+    // img.loadPixels();
+    // for (let i = 0; i < img.width/10; i++) {
+    //   for (let j = 0; j < img.height/10; j++) {
+    //     img.set(i, j, p.color(0, 90, 102, (i % img.width)));
+    //   }
+    // }
+    //
+    // img.updatePixels();
+    p.draw = () => {
+      p.stroke(0, 90, 102, 20);
+      p.fill(0, 90, 102, 20);
+      p.rect(17, 60, 35, 50);
+      p.rect(170, 60, 35, 50);
+      p.rect(window.innerWidth - 650, 60, 35, 50);
+
       p.noFill();
       p.stroke(0, 90, 102, 60);
       p.ellipse(window.innerWidth/3-10, 90, p.mouseX/5, p.mouseX/5);

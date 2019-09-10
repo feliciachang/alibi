@@ -15,6 +15,10 @@ export default function newyork(p){
       p.textFont('Vollkorn');
     }
 
+    p.windowResized = () => {
+      p.resizeCanvas(window.innerWidth, window.innerHeight);
+    }
+
     p.draw = () => {
       for(let i = 1; i < window.innerWidth+100; i = i+100){
         for(let k = 1; k < window.innerHeight+100; k = k+100){

@@ -1,3 +1,4 @@
+
 export default function home(p) {
   let sine = 'SINE';
   let qua = 'QUA';
@@ -18,10 +19,14 @@ export default function home(p) {
       i.push(k);
     }
   }
+
+  p.windowResized = () => {
+    p.resizeCanvas(window.innerWidth, window.innerHeight);
+  }
+
   p.mapLetters = () => {
     p.background('#FFF7E8');
     let counter = 0;
-
     p.textSize(window.innerWidth/10);
     for(let x = 100; x < window.innerWidth - gap; x += gap) {
       let letter = sine.charAt(counter);
@@ -42,7 +47,7 @@ export default function home(p) {
     }
     p.textSize(window.innerWidth/20);
     let description = 'An interactive digital magazine.'
-    p.text(description, 100, margin*4-80);
+    p.text(description,100, margin*4-80);
   }
   let count = 0;
 
