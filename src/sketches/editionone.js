@@ -7,23 +7,23 @@ export default function home(p) {
     p.background('#FCEFD8');
     p.textFont("Vollkorn");
     p.fill('#06069A')
-    p.rect(window.innerWidth/5-60, window.innerHeight/6-60, 900, 860);
+    p.rect(window.innerWidth/7, window.innerHeight/6-60, window.innerWidth-400, window.innerHeight - 200);
     // p.frameRate(5);
   }
 
-// '#FCEFD8'
+// '#565A5D'
   p.draw = () => {
     //p.background('#FFF7E8');
     p.textSize(window.innerHeight/30);
     p.fill('#06069A');
-    p.text(letter, window.innerWidth/5, window.innerHeight/6, 800, 800);
+    p.text(letter, window.innerWidth/5, window.innerHeight/6, window.innerWidth-520, 800);
     p.fill('#FCEFD8');
     p.textSize(window.innerHeight/15);
     p.textStyle(p.BOLD);
     p.text(edition, p.mouseX, p.mouseY);
     p.fill('#06069A');
     p.textSize(window.innerHeight/50);
-    p.text('move mouse to interact', window.innerWidth - 120, 60, 40, 640);
+    p.text('move mouse to interact', window.innerWidth - 100, 60, 40, 640);
     // if(p.mouseIsPressed){
     //   p.text(edition, p.mouseX, p.mouseY);
     // }
