@@ -9,6 +9,10 @@ import './App.css';
 
 //<P5Wrapper sketch={sketch} color={this.state.color}></P5Wrapper>
 //<P5Wrapper sketch={newyork} color={this.state.color}></P5Wrapper>
+
+// <P5Wrapper sketch={sketch} color={this.state.color}></P5Wrapper>
+// <P5Wrapper sketch={mist} color={this.state.color}></P5Wrapper>
+// <P5Wrapper sketch={newyork} color={this.state.color}></P5Wrapper>
 class App extends Component {
   constructor(){
     super();
@@ -27,8 +31,6 @@ class App extends Component {
       <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet"/>
       <P5Wrapper sketch={home} color={this.state.color}></P5Wrapper>
       <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
-      <P5Wrapper sketch={sketch} color={this.state.color}></P5Wrapper>
-      <P5Wrapper sketch={mist} color={this.state.color}></P5Wrapper>
       </div>
     );
   }

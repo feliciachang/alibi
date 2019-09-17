@@ -9,7 +9,7 @@ export default function home(p) {
   p.setup = () => {
     let canvas = p.createCanvas(window.innerWidth, window.innerHeight);
     p.noStroke();
-    p.frameRate(30);
+    p.frameRate(60);
     p.background('#FFF7E8');
     p.textFont("Vollkorn");
     p.frameRate(50);
