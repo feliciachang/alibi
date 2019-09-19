@@ -16,15 +16,39 @@ import './App.css';
 // <P5Wrapper sketch={mist} color={this.state.color}></P5Wrapper>
 // <P5Wrapper sketch={newyork} color={this.state.color}></P5Wrapper>
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {color:[Math.random()*255, Math.random()*255, Math.random()*255]};
-    this.randomColor = this.randomColor.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {num: 0};
+    this.onClick = this.handleClick.bind(this);
   }
 
-  randomColor(){
-    this.setState({color:[Math.random()*255, Math.random()*255, Math.random()*255]}
-    )
+
+  handleClick(){
+    if(this.state.num == 1){
+      this.setState({num: 0})
+    }
+    else {
+      this.setState({num: this.state.num + 1})
+    }
+  }
+
+  switcher = (num) => {
+    switch(this.state.num) {
+      case 0:
+        return(
+          <div onClick={this.onClick}>
+            <P5Wrapper sketch={home} color={this.state.color}></P5Wrapper>
+            <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
+          </div>
+        );
+      case 1:
+        return(
+          <div onClick={this.onClick}>
+            <P5Wrapper sketch={mist} color={this.state.color}></P5Wrapper>
+            <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
+          </div>
+        );
+    }
   }
 
   render() {
@@ -37,13 +61,8 @@ class App extends Component {
         )
       }
       else {
-        return(
-          <div>
-          <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet"/>
-          <P5Wrapper sketch={home} color={this.state.color}></P5Wrapper>
-          <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
-          </div>
-        )
+
+        return this.switcher(this.state.num)
       }
   }
 }

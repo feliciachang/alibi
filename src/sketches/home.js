@@ -59,7 +59,7 @@ export default function home(p) {
       count = 0;
     }
     count++;
-    console.log(i[count]);
+    // console.log(i[count]);
     p.fill(0, i[count]);
     p.mapLetters();
   }
