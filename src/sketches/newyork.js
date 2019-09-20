@@ -30,14 +30,15 @@ export default function newyork(p){
       }
 
       p.stroke(0);
-      p.textSize(window.innerWidth/40);
-      p.text('Drowning', 170, 170, 170, 170);
-      p.text('02', 70, 170, 170, 170);
+      p.textSize(window.innerWidth/30);
+      p.text('Drowning', 170, 250, 170, 170);
+      p.text('02', 70, 250, 170, 170);
       p.noStroke();
       p.rect(window.innerWidth - 740, 130, 600, 400);
       p.fill(0);
-      p.textSize(15);
-      p.text('move mouse to interact', window.innerWidth - 80, 60, 40, 640);
+      p.textSize(window.innerWidth/70);
+      p.text('move mouse to interact', window.innerWidth - 100, 60, 40, 640);
+      p.text('click for next page', window.innerWidth - 100, (window.innerHeight/4)*3 +100, 40, 640);
       p.textSize(18);
       p.text(story, window.innerWidth - 700, 170, 540, 200);
       p.text(story2, window.innerWidth - 700, 300, 540, 600);

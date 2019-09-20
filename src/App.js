@@ -24,7 +24,7 @@ class App extends Component {
 
 
   handleClick(){
-    if(this.state.num == 1){
+    if(this.state.num == 2){
       this.setState({num: 0})
     }
     else {
@@ -45,6 +45,13 @@ class App extends Component {
         return(
           <div onClick={this.onClick}>
             <P5Wrapper sketch={mist} color={this.state.color}></P5Wrapper>
+            <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
+          </div>
+        );
+      case 2:
+        return(
+          <div onClick={this.onClick}>
+            <P5Wrapper sketch={newyork} color={this.state.color}></P5Wrapper>
             <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
           </div>
         );

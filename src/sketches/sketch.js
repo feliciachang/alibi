@@ -8,11 +8,11 @@ export default function sketch(p){
       canvas = p.createCanvas(window.innerWidth, window.innerHeight);
       p.noStroke();
       p.background('#FFF7E8');
-      p.textSize(window.innerWidth/50);
+      p.textSize(window.innerWidth/40);
       p.textFont('Vollkorn');
       p.text('Blueberries and their Physiology', 170, 250, 160, 170);
       p.text('01', 70, 250, 170, 170);
-      p.textSize(window.innerWidth/85);
+      p.textSize(window.innerWidth/75);
       p.text(story, window.innerWidth - 650, 250, 500, 640);
       p.text('move mouse to interact', window.innerWidth - 80, 60, 40, 640);
     }
@@ -33,9 +33,11 @@ export default function sketch(p){
     p.draw = () => {
       p.stroke(0, 90, 102, 20);
       p.fill(0, 90, 102, 20);
-      p.rect(17, 60, 35, 50);
-      p.rect(170, 60, 35, 50);
-      p.rect(window.innerWidth - 650, 60, 35, 50);
+      p.rect(17, 60, 40, 50);
+      // p.point(p.random(17, 57), p.random(60, 110))
+      // p.point(p.random(17, 57), p.random(60, 110))
+      // p.rect(p.random(170, 220), p.random(60, 110);
+      // p.rect(p.random(window.innerWidth - 650, )window.innerWidth - 650, 60, 40, 50);
 
       p.noFill();
       p.stroke(0, 90, 102, 60);
