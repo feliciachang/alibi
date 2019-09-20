@@ -22,7 +22,8 @@ export default function home(p) {
     p.textStyle(p.BOLD);
     p.text(edition, p.mouseX, p.mouseY);
     p.fill('#06069A');
-    p.textSize(window.innerHeight/50);
+    p.textSize(window.innerHeight/70);
+    p.textLeading(window.innerHeight/50);
     p.text('move mouse to interact', window.innerWidth - 100, 60, 40, 640);
     // if(p.mouseIsPressed){
     //   p.text(edition, p.mouseX, p.mouseY);
