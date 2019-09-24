@@ -16,7 +16,7 @@ export default function home(p) {
     //p.background('#FFF7E8');
     p.textSize((window.innerWidth-350)/30);
     p.fill('#06069A');
-    p.text(letter, window.innerWidth/5, window.innerHeight/6, window.innerWidth-520, 800);
+    p.text(letter, window.innerWidth/5, window.innerHeight/6, window.innerWidth-500, 800);
     p.fill('#FFF7E8');
     p.textSize(window.innerHeight/15);
     p.textStyle(p.BOLD);
