@@ -176,7 +176,7 @@ class App extends Component {
           <div style = {{backgroundColor: '#FFF7E8', paddingBottom: 40}}>
             <P5Wrapper sketch={home_mobile} color={this.state.color}></P5Wrapper>
             <P5Wrapper sketch={editionone_mobile} color={this.state.color}></P5Wrapper>
-            <DemoMobile/>
+            <Demo/>
           </div>
         )
       }
