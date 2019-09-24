@@ -9,7 +9,7 @@ export default function home(p) {
     p.fill('#06069A');
     p.text(letter, 50, 100, window.innerWidth - 100, 800);
     p.textSize(window.innerHeight/50);
-    p.text('clickto interact', window.innerWidth - 100, 60, 40, 640);
+    //p.text('clickto interact', window.innerWidth - 100, 60, 40, 640);
 // p.frameRate(5);
   }
 
@@ -17,9 +17,9 @@ export default function home(p) {
   p.draw = () => {
     //p.background('#FFF7E8');
 
-    p.fill('#06069A');
-    p.textSize(window.innerHeight/15);
-    p.text(edition, p.mouseX, p.mouseY);
+    // p.fill('#06069A');
+    // p.textSize(window.innerHeight/15);
+    // p.text(edition, p.mouseX, p.mouseY);
     // if(p.mouseIsPressed){
     //   p.text(edition, p.mouseX, p.mouseY);
     // }
