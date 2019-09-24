@@ -82,7 +82,7 @@ class Demo extends Component {
     return (
       <div style= {{backgroundColor: '#FFF7E8', textAlign: "center"}}>
       <div style={{display: "inline-block"}}>
-        <h1 >Get notified when edition one releases</h1>
+        <h1>Get notified when edition one releases</h1>
         <MailchimpSubscribe
           url={url}
           render={({ subscribe, status, message }) => (

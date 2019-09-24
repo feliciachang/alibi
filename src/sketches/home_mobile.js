@@ -7,7 +7,7 @@ export default function home_mobile(p) {
   let gap = window.innerWidth/5;
   let margin = window.innerHeight/6 ;
   p.setup = () => {
-    let canvas = p.createCanvas(window.innerWidth, 500);
+    let canvas = p.createCanvas(window.innerWidth, 450);
     p.noStroke();
     p.frameRate(60);
     p.background('#FFF7E8');
@@ -21,9 +21,6 @@ export default function home_mobile(p) {
     }
   }
 
-  p.windowResized = () => {
-    p.resizeCanvas(window.innerWidth, window.innerHeight);
-  }
 
   p.mapLetters = () => {
     p.background('#FFF7E8');
