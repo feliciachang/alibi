@@ -9,7 +9,8 @@ import mist from './sketches/mist';
 import editionone from './sketches/editionone';
 import home_mobile from './sketches/home_mobile';
 import editionone_mobile from './sketches/editionone_mobile';
-import MailchimpSubscribe from "react-mailchimp-subscribe"
+import MailchimpSubscribe from "react-mailchimp-subscribe";
+import DemoMobile from "./subscribe/subscribe_mobile";
 import './App.css';
 
 //<P5Wrapper sketch={sketch} color={this.state.color}></P5Wrapper>
@@ -175,14 +176,12 @@ class App extends Component {
           <div style = {{backgroundColor: '#FFF7E8', paddingBottom: 40}}>
             <P5Wrapper sketch={home_mobile} color={this.state.color}></P5Wrapper>
             <P5Wrapper sketch={editionone_mobile} color={this.state.color}></P5Wrapper>
-            <Demo/>
+            <DemoMobile/>
           </div>
         )
       }
       else {
-
         return (
-
           <div style = {{backgroundColor: '#FFF7E8', paddingBottom: 40}}>
           <P5Wrapper sketch={home} color={this.state.color}></P5Wrapper>
           <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
