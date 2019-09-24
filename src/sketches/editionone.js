@@ -6,15 +6,15 @@ export default function home(p) {
     let canvas = p.createCanvas(window.innerWidth, window.innerHeight);
     p.background('#FFF7E8');
     p.textFont("Vollkorn");
-    p.fill('#06069A')
-    p.rect(window.innerWidth/7, window.innerHeight/6-60, window.innerWidth-400, window.innerHeight - 200);
+    p.fill('#06069A');
+    p.rect(window.innerWidth/7, window.innerHeight/6-60, window.innerWidth-350, window.innerHeight - 200);
     // p.frameRate(5);
   }
 
 // '#565A5D'
   p.draw = () => {
     //p.background('#FFF7E8');
-    p.textSize(window.innerHeight/30);
+    p.textSize((window.innerWidth-350)/30);
     p.fill('#06069A');
     p.text(letter, window.innerWidth/5, window.innerHeight/6, window.innerWidth-520, 800);
     p.fill('#FFF7E8');
