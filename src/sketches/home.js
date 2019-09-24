@@ -29,7 +29,6 @@ export default function home(p) {
     p.background('#FFF7E8');
     p.textSize(window.innerHeight/70);
     p.text('scroll to learn more', window.innerWidth - 100, margin-120, 40, 640);
-    p.text('click for next page', window.innerWidth - 100, margin*3 +100, 40, 640);
     let counter = 0;
     p.textSize(window.innerWidth/10);
     for(let x = 100; x < window.innerWidth - gap; x += gap) {
