@@ -99,48 +99,33 @@ class Demo extends Component {
     );
   }
 }
-//
-// class Subscribe extends Component {
-//   render() {
-//     return(
-//       <div id="mc_embed_signup">
-//       <form action="https://gmail.us20.list-manage.com/subscribe/post?u=efcf53e5cc53e101735848444&amp;id=9d9a5c1f74" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-//           <div id="mc_embed_signup_scroll">
-//             <h2>Subscribe</h2>
-//             <div class="mc-field-group">
-//             	<label for="mce-EMAIL">Email Address </label>
-//             	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"/>
-//             </div>
-//             <div id="mce-responses" class="clear">
-//             		<div class="response" id="mce-error-response" style={{display:"none"}}></div>
-//             		<div class="response" id="mce-success-response" style={{display:"none"}}></div>
-//             </div>
-//             <div aria-hidden="true">
-//                 <input type="text" name="b_efcf53e5cc53e101735848444_9d9a5c1f74" tabindex="-1" value=""/>
-//             </div>
-//             <div class="clear">
-//                 <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"/>
-//             </div>
-//           </div>
-//       </form>
-//       </div>
-//     )
-//   }
-// }
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {num: 0};
-    this.onClick = this.handleClick.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
 
-  handleClick(){
-    if(this.state.num == 2){
-      this.setState({num: 0})
+  handleKeyDown(e){
+    console.log("this is being called");
+    console.log(e.keyCode);
+    if(e.keyCode === 0) {
+      if(this.state.num == 2){
+        this.setState({num: 0})
+      }
+      else {
+        this.setState({num: this.state.num + 1})
+      }
     }
-    else {
-      this.setState({num: this.state.num + 1})
+    else if (e.keyCode === 0) {
+      if(this.state.num == 0){
+        this.setState({num: 2})
+      }
+      else {
+        this.setState({num: this.state.num - 1})
+      }
     }
   }
 
@@ -148,23 +133,26 @@ class App extends Component {
     switch(this.state.num) {
       case 0:
         return(
-          <div onClick={this.onClick}>
+          <div tabIndex="1" onKeyPress={e => this.handleKeyDown(e)}>
             <P5Wrapper sketch={home} color={this.state.color}></P5Wrapper>
             <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
+            <Demo/>
           </div>
         );
       case 1:
         return(
-          <div onClick={this.onClick}>
+          <div tabIndex="1" onKeyPress={this.handleKeyDown}>
             <P5Wrapper sketch={mist} color={this.state.color}></P5Wrapper>
             <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
+            <Demo/>
           </div>
         );
       case 2:
         return(
-          <div onClick={this.onClick}>
+          <div tabIndex="1" onKeyPress={this.handleKeyDown}>
             <P5Wrapper sketch={newyork} color={this.state.color}></P5Wrapper>
             <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
+            <Demo/>
           </div>
         );
     }
@@ -181,16 +169,17 @@ class App extends Component {
         )
       }
       else {
-        return (
-          <div style = {{backgroundColor: '#FFF7E8', paddingBottom: 40}}>
-          <P5Wrapper sketch={home} color={this.state.color}></P5Wrapper>
-          <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
-          <Demo/>
-          </div>
-        )
+        return this.switcher(this.state.num)
       }
   }
 }
+// return (
+//   <div style = {{backgroundColor: '#FFF7E8', paddingBottom: 40}}>
+//   <P5Wrapper sketch={home} color={this.state.color}></P5Wrapper>
+//   <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
+//   <Demo/>
+//   </div>
+// )
 //return this.switcher(this.state.num)
 
 export default App;

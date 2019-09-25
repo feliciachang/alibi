@@ -20,7 +20,7 @@ export default function mist(p) {
     p.text(story2, window.innerWidth - 750, 390);
     p.text(story3, window.innerWidth - 750, 650);
     p.text('move mouse to interact', window.innerWidth - 80, 60, 40, 640);
-    p.text('click for next page', window.innerWidth - 100, (window.innerHeight/4)*3+100, 40, 640);
+    p.text('press any key for next page', window.innerWidth - 100, (window.innerHeight/4)*3+100, 40, 640);
   }
 
   // p.windowResized = () => {
