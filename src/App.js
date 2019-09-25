@@ -111,7 +111,7 @@ class App extends Component {
   handleKeyDown(e){
     console.log("this is being called");
     console.log(e.keyCode);
-    if(e.keyCode === 0) {
+    if(e.keyCode === 39) {
       if(this.state.num == 2){
         this.setState({num: 0})
       }
@@ -119,7 +119,7 @@ class App extends Component {
         this.setState({num: this.state.num + 1})
       }
     }
-    else if (e.keyCode === 0) {
+    else if (e.keyCode === 37) {
       if(this.state.num == 0){
         this.setState({num: 2})
       }
@@ -133,7 +133,7 @@ class App extends Component {
     switch(this.state.num) {
       case 0:
         return(
-          <div tabIndex="1" onKeyPress={e => this.handleKeyDown(e)}>
+          <div tabIndex="1" onKeyDown={e => this.handleKeyDown(e)}>
             <P5Wrapper sketch={home} color={this.state.color}></P5Wrapper>
             <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
             <Demo/>
@@ -141,7 +141,7 @@ class App extends Component {
         );
       case 1:
         return(
-          <div tabIndex="1" onKeyPress={this.handleKeyDown}>
+          <div tabIndex="1" onKeyDown={e => this.handleKeyDown(e)}>
             <P5Wrapper sketch={mist} color={this.state.color}></P5Wrapper>
             <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
             <Demo/>
@@ -149,7 +149,7 @@ class App extends Component {
         );
       case 2:
         return(
-          <div tabIndex="1" onKeyPress={this.handleKeyDown}>
+          <div tabIndex="1" onKeyDown={e => this.handleKeyDown(e)}>
             <P5Wrapper sketch={newyork} color={this.state.color}></P5Wrapper>
             <P5Wrapper sketch={editionone} color={this.state.color}></P5Wrapper>
             <Demo/>
