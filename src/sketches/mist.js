@@ -55,7 +55,7 @@ export default function mist(p) {
     p.textSize(window.innerHeight/70);
     p.textLeading(window.innerHeight/50);
     p.text('move mouse to interact', window.innerWidth - 100, 60, 40, 640);
-    p.text('click for next page', window.innerWidth - 100, (window.innerHeight/4)*3+100, 40, 640);
+    p.text('arrow key for next page', window.innerWidth - 100, (window.innerHeight/4)*3+100, 40, 640);
 
     p.fill(196, 56, 43, 10);
     p.noStroke();
