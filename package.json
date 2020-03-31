@@ -9,6 +9,7 @@
     "react-mailchimp-form": "^1.0.2",
     "react-mailchimp-subscribe": "^2.1.0",
     "react-p5-wrapper": "^2.0.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.0",
     "reactstrap": "^8.0.1"
   },
