@@ -97,6 +97,9 @@ function Home() {
       <div>
         <Navbar/>
         <div className="app">
+        <P5Wrapper sketch={editionone} ></P5Wrapper>
+        <br/>
+        <br/>
           <div style={{marginBottom: "3%"}}>
             <button style={{border: "1px solid black", borderRadius: "2rem", fontSize: "15px"}}>Static Poetry</button>
           </div>
@@ -113,10 +116,6 @@ function Home() {
             <Content style={{flex: 1}} title="Mist" author="Katherine Sun" id="mist"/>
             <Content style={{flex: 1}} title="Mist" author="Katherine Sun" id="mist"/>
           </div>
-            <div style={{marginBottom: "3%", marginTop: "10%"}}>
-                <button style={{border: "1px solid black", borderRadius: "2rem", fontSize: "15px"}}>A note from the editor</button>
-            </div>
-            <P5Wrapper sketch={editionone} ></P5Wrapper>
         </div>
       </div>
     )

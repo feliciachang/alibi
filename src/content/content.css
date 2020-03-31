@@ -1,21 +1,26 @@
 .content {
     margin-right: 5%;
-    border: 1px solid;
+    border: 1px solid black;
     width: 25vh;
     height: 25vh;
     padding-left: 10px;
+    color: #06069A;
+}
+
+.content:hover{
+    background-color: #06069A;
+    color: white;
 }
 
 .content h1 {
     font-size: 4vh;
     font-weight: normal;
     line-height: 1em;
-    color: #06069A;
     font-family: "Vollkorn";
 }
+
 .content h3 {
     font-size: 1.5vh;
     line-height: 0em;
     font-weight: normal;
-    color:  #06069A;
 }
