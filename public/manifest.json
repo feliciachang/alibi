@@ -8,14 +8,9 @@
       "type": "image/x-icon"
     },
     {
-      "src": "sinequanon192.png",
+      "src": "alibi.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "sinequanon512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "150x150"
     }
   ],
   "start_url": ".",
