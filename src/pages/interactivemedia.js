@@ -24,7 +24,6 @@ const InteractiveMedia = () => {
                 mediaType="interactive"
             />
             <Content style={{flex: 1}} title="Untitled" author="Kamau Walker" id="untitled" mediaType="interactive"/>
-            <Content style={{flex: 1}} title="Blueberries and their Physiology" author="Felicia Chang" id="blueberries" mediaType="interactive"/>
             </div>
             </div>
         </div>
