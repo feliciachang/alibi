@@ -8,7 +8,7 @@ export default function mist(p) {
  
   p.setup = () => {
     console.log("mist");
-    canvas = p.createCanvas(window.innerWidth, 1000);
+    canvas = p.createCanvas(window.innerWidth, 800);
     diameter = window.innerHeight/8-10;
     p.noStroke();
     p.frameRate(30);
