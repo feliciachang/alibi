@@ -1,16 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-
-import logo from "./logo.svg";
-import "./App.css";
+import styles from "./navbar.module.css";
 
 function Navbar() {
   return (
     <div>
       <div>
         <Router>
-          <div className="leftnav">
-            <a href="/" style={{paddingTop: "40px", fontSize: "40px"}}> Alibi </a>
+          <div className={styles.title}>
+          <a href="/" style={{fontSize: "40px"}}> Alibi </a>
+          </div>
+          <div className= {styles.leftnav}>
             <div style={{paddingBottom: "40px"}}></div>
             <a href="/staticpoetry">Static Poetry</a>
             <hr style={{

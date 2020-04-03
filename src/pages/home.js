@@ -1,13 +1,11 @@
 import React, { Component, useState, useEffect } from 'react';
-import {useHistory} from "react-router-dom";
 import P5Wrapper from 'react-p5-wrapper';
-import newyork from '../sketches/newyork';
-import mist from '../sketches/mist';
 import editionone from '../sketches/editionone';
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-import '../App.css';
-import Navbar from "../navbar";
 import Content from "../content/content";
+import styles from "./pages.module.css";
+import Interactive from "./interactivemedia";
+import StaticMedia from "./staticpoetry";
 
 // a basic form
 const CustomForm = ({ status, message, onValidated }) => {
@@ -91,31 +89,30 @@ class Demo extends Component {
 
 function Home() {
 
-    let history = useHistory();
-
     return (
       <div>
-        <Navbar/>
-        <div className="app">
-        <P5Wrapper sketch={editionone} ></P5Wrapper>
-        <br/>
-        <br/>
-          <div style={{marginBottom: "3%"}}>
-            <button style={{border: "1px solid black", borderRadius: "2rem", fontSize: "15px"}}>Static Poetry</button>
-          </div>
-          <div style={{display: "flex"}}>
-            <Content style={{flex: 1}} title="Mist" author="Katherine Sun" id="mist"/>
-            <Content style={{flex: 1}} title="Untitled" author="Kamau Walker" id="newyork"/>
-            <Content style={{flex: 1}} title="Blueberries and their Physiology" author="Felicia Chang" id="blueberries"/>
-          </div>
-          <div style={{marginBottom: "3%", marginTop: "10%"}}>
-            <button style={{border: "1px solid black", borderRadius: "2rem", fontSize: "15px"}}>Interactive Art</button>
-          </div>
-          <div style={{display: "flex"}}>
-            <Content style={{flex: 1}} title="Mist" author="Katherine Sun" id="mist"/>
-            <Content style={{flex: 1}} title="Mist" author="Katherine Sun" id="mist"/>
-            <Content style={{flex: 1}} title="Mist" author="Katherine Sun" id="mist"/>
-          </div>
+        <div className={styles.container}>
+            {
+                window.innerWidth < 600 ? (
+                    <div style={{marginLeft: "100px"}}>
+                    <h1>This website is not yet compatable for small screens!</h1>
+                    </div>
+                ):( 
+                    <div style={{marginLeft: "13%", marginRight: "auto"}}>
+                    <P5Wrapper sketch={editionone} ></P5Wrapper>
+                    </div>
+                )   
+            }
+            <br/>
+            <br/>
+            <div className={styles.title}>
+                <button className={styles.button}>Static Poetry</button>
+            </div>
+            <StaticMedia/>
+            <div className={styles.title}>
+                <button className={styles.button}>Interactive Media</button>
+            </div>
+            <Interactive/>
         </div>
       </div>
     )

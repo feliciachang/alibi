@@ -1,8 +1,10 @@
 .content {
+    flex: 1;
     margin-right: 5%;
+    margin-bottom: 5%;
     border: 1px solid black;
-    width: 25vh;
-    height: 25vh;
+    max-width: 27vh;
+    height: 27vh;
     padding-left: 10px;
     color: #06069A;
 }
@@ -13,6 +15,7 @@
 }
 
 .content h1 {
+    width: 25vh;
     font-size: 4vh;
     font-weight: normal;
     line-height: 1em;
@@ -21,6 +24,6 @@
 
 .content h3 {
     font-size: 1.5vh;
-    line-height: 0em;
+    line-height: 1em;
     font-weight: normal;
 }

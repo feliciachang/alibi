@@ -2,6 +2,7 @@
   margin-left: 18%;
   margin-right: 10%;
   margin-top: 7%;
+  margin-bottom: 5%;
 }
 
 .App-logo {
@@ -19,35 +20,4 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.leftnav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 10%; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  overflow: auto; /* Disable horizontal scroll */
-  font-family: Vollkorn;
-}
-
-.leftnav a {
-  padding: 10px 0px 0px 0px;
-  text-decoration: none;
-  font-size: 13px;
-  color: #000;
-  display: block;
-  text-align: right;
-}
-
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

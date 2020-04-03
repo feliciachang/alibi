@@ -12,7 +12,7 @@ export default function home(p) {
     p.fill('#06069A');
     // p.frameRate(5);
     p.rectMode("CENTER");
-    p.rect(0, 0, width, height);
+    p.rect(0, 0, window.innerWidth, height);
   }
 
 // '#565A5D'

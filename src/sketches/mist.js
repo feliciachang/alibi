@@ -8,7 +8,7 @@ export default function mist(p) {
  
   p.setup = () => {
     console.log("mist");
-    canvas = p.createCanvas(window.innerWidth, window.innerHeight);
+    canvas = p.createCanvas(window.innerWidth, 800);
     diameter = window.innerHeight/8-10;
     p.noStroke();
     p.frameRate(30);
@@ -16,7 +16,6 @@ export default function mist(p) {
     p.textSize(window.innerWidth/35);
     p.textFont('Vollkorn');
     p.text('Mist', 170, 250, 160, 170);
-    p.text('01', 70, 250, 170, 170);
     p.textSize(window.innerWidth/70);
     p.textLeading(window.innerHeight/35);
     p.text(story, window.innerWidth - 750, 150);
@@ -44,21 +43,18 @@ export default function mist(p) {
     p.noStroke();
     p.textSize(window.innerWidth/30);
     p.textFont('Vollkorn');
-    p.text('Mist', 200, 250, 160, 170);
-    p.text('01', 100, 250, 170, 170);
+    p.text('Mist', window.innerWidth - 650, 100, 300, 170);
 
     p.fill(200, p.mouseX/10, p.mouseX/10, 100);
     p.rect(window.innerWidth - 650, 100, d1, 850);
     p.fill(0);
     p.textSize(window.innerWidth/70);
     p.textLeading(window.innerHeight/35);
-    p.text(story, window.innerWidth - 600, 150);
-    p.text(story2, window.innerWidth - 600, 350);
-    p.text(story3, window.innerWidth - 600, 550);
+    p.text(story, window.innerWidth - 580, 170);
+    p.text(story2, window.innerWidth - 580, 370);
+    p.text(story3, window.innerWidth - 580, 570);
     p.textSize(window.innerHeight/70);
     p.textLeading(window.innerHeight/50);
-    p.text('move mouse to interact', window.innerWidth - 100, 60, 40, 640);
-    p.text('arrow key for next page', window.innerWidth - 100, (window.innerHeight/4)*3+100, 40, 640);
 
     p.fill(196, 56, 43, 10);
     p.noStroke();

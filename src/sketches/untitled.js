@@ -1,4 +1,4 @@
-export default function newyork(p){
+export default function untitled(p){
     let canvas;
     let water;
 
@@ -37,8 +37,6 @@ export default function newyork(p){
       p.rect(window.innerWidth - 740, 130, 600, 400);
       p.fill(0);
       p.textSize(window.innerWidth/70);
-      p.text('move mouse to interact', window.innerWidth - 100, 60, 40, 640);
-      p.text('arrow key for next page', window.innerWidth - 100, (window.innerHeight/4)*3 +100, 40, 640);
       p.textSize(18);
       p.text(story, window.innerWidth - 700, 170, 540, 200);
       p.text(story2, window.innerWidth - 700, 300, 540, 600);
