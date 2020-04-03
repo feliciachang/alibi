@@ -12,21 +12,21 @@ function Navbar() {
           </div>
           <div className= {styles.leftnav}>
             <div style={{paddingBottom: "40px"}}></div>
-            <a href="/staticpoetry">Static Poetry</a>
+            <a href="/staticpoetry">Static</a>
             <hr style={{
                   display: "block",
                   border: 0,
                   borderTop: "1px solid #000",
                   padding: 0,
             }}/>          
-            <a href="/interactivemedia">Interactive Media</a>
+            <a href="/interactivemedia">Interactive</a>
             <hr style={{
                   display: "block",
                   border: 0,
                   borderTop: "1px solid #000",
                   padding: 0,
             }}/>
-            <a href="/random">Random</a>
+            <a href="/about">About</a>
             <hr style={{
                   display: "block",
                   border: 0,

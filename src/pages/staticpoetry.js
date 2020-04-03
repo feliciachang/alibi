@@ -25,6 +25,7 @@ const StaticPoetry = (props) => {
 
     return(
         <div className={styles.container}>
+            <div style={{marginLeft: "14vw"}}>
             {
                 content != null ? (
                     <div className={styles.flexGrid}>
@@ -38,6 +39,7 @@ const StaticPoetry = (props) => {
                     </div>
                 )
             }
+            </div>
         </div>
     )
 }

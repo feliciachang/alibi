@@ -4,7 +4,7 @@ import Interactive from './content/interactive';
 import Static from "./content/static";
 import InteractiveMedia from "./pages/interactivemedia";
 import StaticPoetry from "./pages/staticpoetry";
-import Contribute from "./pages/contribute";
+import About from "./pages/about";
 import Navbar from "./navigation/navbar";
 import Home from "./pages/home";
 
@@ -17,7 +17,7 @@ class App extends Component {
         <Route path="/" exact component={Home} />
         <Route path="/interactivemedia" exact component={InteractiveMedia} />
         <Route path="/staticpoetry" exact component={StaticPoetry} />
-        <Route path="/contribute" exact component={Contribute}/>
+        <Route path="/about" exact component={About}/>
         <Route path="/interactive/:id" exact component={Interactive} />
         <Route path="/static/:id" exact component={Static} />
       </Router>

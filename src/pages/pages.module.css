@@ -1,6 +1,6 @@
 .container{
     padding-left: 10vw;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
 .flexGrid{
@@ -10,6 +10,8 @@
 
 .title{
     margin-left: 10%;
+    margin-top: 5%;
+    margin-bottom: 3%;
 }
 
 .button{

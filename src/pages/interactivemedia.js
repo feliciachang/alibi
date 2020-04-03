@@ -7,6 +7,7 @@ import Content from "../content/content";
 const InteractiveMedia = () => {
     return(
         <div className={styles.container}>
+            <div style={{marginLeft: "14vw"}}>
             <div className={styles.flexGrid}>
             <Content 
                 style={{flex: 1}} 
@@ -23,10 +24,9 @@ const InteractiveMedia = () => {
                 mediaType="interactive"
             />
             <Content style={{flex: 1}} title="Untitled" author="Kamau Walker" id="untitled" mediaType="interactive"/>
-        </div>
-        <div className={styles.container}>
             <Content style={{flex: 1}} title="Blueberries and their Physiology" author="Felicia Chang" id="blueberries" mediaType="interactive"/>
-        </div>
+            </div>
+            </div>
         </div>
     )
 }

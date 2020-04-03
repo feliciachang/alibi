@@ -7,6 +7,8 @@ import styles from "./pages.module.css";
 import Interactive from "./interactivemedia";
 import StaticMedia from "./staticpoetry";
 
+const contentful = require("contentful");
+
 // a basic form
 const CustomForm = ({ status, message, onValidated }) => {
   let email, name;
@@ -88,6 +90,22 @@ class Demo extends Component {
 }
 
 function Home() {
+    const [content, setContent] = useState(null);
+
+    useEffect(() => {
+        const getContent= async () => {
+            let client = contentful.createClient({
+                space: "zt0mvirckb5a",
+                accessToken: "KkHd0KIkU7CWpGQ6ih1wagGPdt_JTqO31gJaQ4skQq4"
+              });
+
+            let response = await client.getEntries('staticPoetry');
+            console.log(response.items);
+            setContent(response.items.slice(0, 3));
+
+        }
+        getContent();
+    }, []) 
 
     return (
       <div>
@@ -98,21 +116,51 @@ function Home() {
                     <h1>This website is not yet compatable for small screens!</h1>
                     </div>
                 ):( 
-                    <div style={{marginLeft: "13%", marginRight: "auto"}}>
+                    <div style={{marginLeft: "11%", marginRight: "auto"}}>
                     <P5Wrapper sketch={editionone} ></P5Wrapper>
                     </div>
                 )   
             }
-            <br/>
-            <br/>
             <div className={styles.title}>
                 <button className={styles.button}>Static Poetry</button>
             </div>
-            <StaticMedia/>
+            <div style={{marginLeft: "10vw"}}>
+            {
+                content != null ? (
+                    <div className={styles.flexGrid}>
+                        {content.map((content, i) => (
+                            <Content key = {i} title={content.fields.title} author={content.fields.author} mediaType={"static"} id={content.sys.id}/>
+                        ))}
+                    </div>
+                ):(
+                    <div>
+                        <h5> loading content </h5>
+                    </div>
+                )
+            }
+            </div>
             <div className={styles.title}>
                 <button className={styles.button}>Interactive Media</button>
             </div>
-            <Interactive/>
+            <div style={{marginLeft: "10vw"}}>
+            <div className={styles.flexGrid}>
+            <Content 
+                style={{flex: 1}} 
+                title="Wild Ann Imagined" 
+                author="Sara Lucas" 
+                id="wildann"
+                mediaType="interactive"
+            />
+            <Content 
+                style={{flex: 1}} 
+                title="Mist" 
+                author="Katherine Sun" 
+                id="mist"
+                mediaType="interactive"
+            />
+            <Content style={{flex: 1}} title="Untitled" author="Kamau Walker" id="untitled" mediaType="interactive"/>
+            </div>
+            </div>
         </div>
       </div>
     )

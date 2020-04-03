@@ -28,7 +28,7 @@ const Static = (props) => {
     }, []) 
 
     return(
-        <div style={{display: "flex", justifyContent: "center", textAlign: "left", marginTop: "8%", marginBottom: "10%"}}>
+        <div style={{display: "flex", justifyContent: "center", textAlign: "left", marginTop: "8%", marginBottom: "10%", marginLeft: "25vw", marginRight: "20vw"}}>
             {
                 content != null ? (
                     <div style={{fontFamily: "Vollkorn"}}>
@@ -36,9 +36,9 @@ const Static = (props) => {
                         <div>{content.author}</div>
                         <br/>
                         <br/>
-                        <div>
+                        <div >
                             {content.poetry.content.map((c, i) => (
-                                <div >
+                                <div>
                                     {c.content[0].value}
                                 </div>
                             ))}
