@@ -1,95 +1,98 @@
-.title{
-    margin-top: 5%;
-    margin-left: 5%;
-    font-family: Vollkorn;
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-  }
-  .title a {
-    margin-left: 5%;
-    padding: 10px 0px 0px 0px;
-    text-decoration: none;
-    font-size: 10px;
-    color: #000;
-    text-align: right;
-  }
-  
-  /* .leftnav {
-    height: 100%; 
-    width: 150px; 
-    position: fixed; 
-    display: flex;
-    right: 0;
-  }
-  
-  .leftnav a {
-    flex: 1;
-    padding: 10px 0px 0px 0px;
-    text-decoration: none;
-    font-size: 13px;
-    color: #000;
-    display: block;
-    text-align: right;
-  } */
-
-  .leftnav {
-    height: 100%; 
-    width: 150px; 
-    position: fixed; 
-    z-index: 1; 
-    top: 0; 
-    right: 0;
-    overflow: auto; 
-  }
-  
-  .leftnav a {
-    margin-left: 5%;
-    padding: 10px 0px 0px 0px;
-    text-decoration: none;
-    font-size: 12px;
-    color: #000;
-    text-align: right;
-    font-family: Vollkorn;
-  }
-
-  @media only screen and (max-width: 1050px) {
-    .title{
-        margin-top: 5%;
-        margin-left: 5%;
-        font-family: Vollkorn;
-        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-        z-index: 1; /* Stay on top */
-        top: 0; /* Stay at the top */
-      }
-      .title a {
-        margin-left: 5%;
-        padding: 10px 0px 0px 0px;
-        text-decoration: none;
-        font-size: 13px;
-        color: #000;
-        text-align: right;
-      }
-
-    .leftnav {
-        padding-top: 10%;
-        height: 100%; /* Full-height: remove this if you want "auto" height */
-        width: 135px; /* Set the width of the sidebar */
-        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-        z-index: 1; /* Stay on top */
-        top: 0; /* Stay at the top */
-        left: 0;
-        overflow: auto; /* Disable horizontal scroll */
-      }
-      
-      .leftnav a {
-        padding: 10px 0px 0px 0px;
-        text-decoration: none;
-        font-size: 12px;
-        color: #000;
-        display: block;
-        text-align: right;
-        font-family: Vollkorn;
-      }
-    
+/* .title {
+  margin-top: 5%;
+  margin-left: 5%;
+  font-family: Vollkorn;
+  position: fixed; 
+  z-index: 1;
+  top: 0; 
 }
+.title a {
+  margin-left: 5%;
+  padding: 10px 0px 0px 0px;
+  text-decoration: none;
+  font-size: 10px;
+  color: #000;
+  text-align: right;
+}
+
+.leftnav {
+  height: 100%;
+  width: 150px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  overflow: auto;
+}
+
+.leftnav a {
+  margin-left: 5%;
+  padding: 10px 0px 0px 0px;
+  text-decoration: none;
+  font-size: 11px;
+  color: #000;
+  text-align: right;
+  font-family: "Fira Mono";
+} */
+
+/* @media only screen and (max-width: 1050px) { */
+
+.title {
+  margin-top: 5%;
+  margin-left: 5%;
+  font-family: Vollkorn;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+}
+.title a {
+  margin-left: 5%;
+  padding: 10px 0px 0px 0px;
+  text-decoration: none;
+  font-size: 13px;
+  color: #000;
+  text-align: right;
+}
+
+.leftnav {
+  padding-top: 10%;
+  height: 100%;
+  width: 135px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.leftnav a {
+  padding: 10px 0px 0px 0px;
+  text-decoration: none;
+  font-size: 11px;
+  color: #000;
+  display: block;
+  text-align: right;
+  font-family: "Fira Mono";
+}
+
+.bottomnav {
+  padding-bottom: 12%;
+  width: 135px;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.bottomnav a {
+  padding: 10px 0px 0px 0px;
+  text-decoration: none;
+  font-size: 11px;
+  color: #000;
+  display: block;
+  text-align: right;
+  font-family: "Fira Mono";
+}
+
+/* } */

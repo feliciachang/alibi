@@ -1,18 +1,34 @@
-import React, { Component, useState, useEffect } from 'react';
+import React from "react";
+import styles from "./pages.module.css";
 
 const About = () => {
-    return(
-        <div style={{marginBottom: "10%"}}>
-        <div style={{fontSize: "50px", marginLeft: "20vw", marginTop: "10%", marginRight: "10vw"}}>
-            Alibi is a new interactive magazine featuring an amalgamation of traditional creative writing and interactive media.
-            We're not quite functional yet, but we're trying to be! 
+  return (
+    <div style={{ marginLeft: "200px", marginTop: "15%", marginRight: "10%" }}>
+      <div style={{ marginBottom: "10%" }}>
+        <div
+          style={{
+            fontSize: "40px",
+            fontFamily: "fira mono",
+          }}
+        >
+          Alibi is a new interactive magazine featuring an amalgamation of
+          traditional creative writing and interactive media. We're not quite
+          functional yet, but we're trying to be!
         </div>
-        <div style={{fontSize: "50px", marginLeft: "20vw", marginTop: "10%", marginRight: "10vw"}}>
-            If you would like to submit work, please email felicia.chang@yale.edu. We are currently only taking static creative writing right now.
-            But if you would like to participate in building interactive experiences, please reach out to the same email above. 
+        <br />
+        <br />
+        <div
+          style={{
+            fontSize: "40px",
+            fontFamily: "fira mono",
+          }}
+        >
+          If you are interested in learning more, please email
+          felicia.chang@yale.edu.
         </div>
-        </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default About;

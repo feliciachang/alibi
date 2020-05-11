@@ -1,34 +1,59 @@
 .content {
-    flex: 1;
-    margin-right: 5%;
-    margin-bottom: 3%;
-    border: 1px solid black;
-    max-width: 27vh;
-    height: 27vh;
-    padding-left: 10px;
-    color: #06069A;
+  flex: 1;
+  margin-right: 5%;
+  margin-bottom: 3%;
+  border: 1px solid black;
+  max-width: 27vh;
+  height: 27vh;
+  padding-left: 10px;
+  color: #06069a;
 }
 
-.content:hover{
-    background-color: #06069A;
-    color: white;
+.content:hover {
+  transform: translateY(-0.5em) scale(1);
+  background-color: #06069a;
+  color: white;
+  border-radius: 50%;
 }
 
 .content h1 {
-    width: 25vh;
-    font-size: 4vh;
-    font-weight: normal;
-    line-height: 1em;
-    font-family: "Vollkorn";
+  width: 25vh;
+  font-size: 3vw;
+  font-weight: normal;
+  line-height: 1em;
+  font-family: "Vollkorn";
+}
+
+.content:hover h1 {
+  padding: 0px;
+  margin-left: -20px;
+  margin-top: -5px;
+  width: 25vh;
+  font-size: 10vw;
+  font-weight: normal;
+  line-height: 0.8em;
+  font-family: "fira mono";
+  word-wrap: break-word;
+}
+
+.content:hover h3 {
+  padding: 0px;
+  margin-left: -20px;
+  margin-top: -5px;
+  width: 25vh;
+  font-size: 1.5vh;
+  font-weight: normal;
+  line-height: 1em;
+  word-wrap: break-word;
 }
 
 .content h3 {
-    font-size: 1.5vh;
-    line-height: 1em;
-    font-weight: normal;
+  font-size: 1.5vh;
+  line-height: 1em;
+  font-weight: normal;
 }
 
-.body{
-    padding-left: 10vw;
-    line-height: 1.4rem;
+.body {
+  padding-left: 10vw;
+  line-height: 1.4rem;
 }

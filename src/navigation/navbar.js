@@ -1,40 +1,66 @@
-import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styles from "./navbar.module.css";
+import { UserContext } from "../UserContext";
 
-function Navbar() {
+const Navbar = () => {
+  const { user, setUser } = useContext(UserContext);
+
   return (
     <div>
       <div>
-        <Router>
-          <div className={styles.title}>
-          <a href="/" style={{fontSize: "40px"}}> Alibi </a>
+        <div className={styles.title}>
+          <a href="/about" style={{ fontSize: "40px" }}>
+            {" "}
+            Alibi{" "}
+          </a>
+        </div>
+        <div className={styles.leftnav}>
+          <div style={{ paddingBottom: "40px" }}></div>
+          <Link to="/">Read/Play</Link>
+          <hr
+            style={{
+              display: "block",
+              border: 0,
+              borderTop: "1px solid #000",
+              padding: 0,
+            }}
+          />
+          <Link to="/writeandcode">Write/Code</Link>
+          <hr
+            style={{
+              display: "block",
+              border: 0,
+              borderTop: "1px solid #000",
+              padding: 0,
+            }}
+          />
+          <Link to="/signupandin">Sign Up/In</Link>
+          <hr
+            style={{
+              display: "block",
+              border: 0,
+              borderTop: "1px solid #000",
+              padding: 0,
+            }}
+          />
+        </div>
+        {user.id == 0 ? (
+          <div></div>
+        ) : (
+          <div className={styles.bottomnav}>
+            <hr
+              style={{
+                display: "block",
+                border: 0,
+                borderTop: "1px solid #000",
+                padding: 0,
+                margin: 0,
+              }}
+            />
+            <Link to="/memine">Me/Mine</Link>
           </div>
-          <div className= {styles.leftnav}>
-            <div style={{paddingBottom: "40px"}}></div>
-            <a href="/staticpoetry">Static</a>
-            <hr style={{
-                  display: "block",
-                  border: 0,
-                  borderTop: "1px solid #000",
-                  padding: 0,
-            }}/>          
-            <a href="/interactivemedia">Interactive</a>
-            <hr style={{
-                  display: "block",
-                  border: 0,
-                  borderTop: "1px solid #000",
-                  padding: 0,
-            }}/>
-            <a href="/about">About</a>
-            <hr style={{
-                  display: "block",
-                  border: 0,
-                  borderTop: "1px solid #000",
-                  padding: 0,
-            }}/>
-          </div>
-        </Router>
+        )}
         <div className="divided">
           <span className="divider" />
           <span className="divider" />
@@ -42,6 +68,6 @@ function Navbar() {
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;
