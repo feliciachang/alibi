@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import styles from "./pages.module.css";
 
 import { UserContext } from "../UserContext";
+import { withRouter } from "react-router-dom";
 
 const Login = (props) => {
   const { register, handleSubmit } = useForm();
@@ -39,7 +40,13 @@ const Login = (props) => {
       ) : (
         <div>
           <div style={{ marginBottom: "20px" }}>
-            <div style={{ fontFamily: "Vollkorn", fontSize: "36px" }}>
+            <div
+              style={{
+                fontFamily: "Vollkorn",
+                fontSize: "36px",
+                color: "white",
+              }}
+            >
               {" "}
               Login{" "}
             </div>
@@ -49,12 +56,14 @@ const Login = (props) => {
               <input
                 style={{
                   paddingTop: "15px",
-                  paddingLeft: "5px",
                   paddingBottom: "5px",
                   border: "none",
                   fontSize: "15px",
-                  borderBottom: "2px solid #757575",
-                  backgroundColor: "#f9f9f9",
+                  backgroundColor: "#06069A",
+                  borderBottom: "2px solid white",
+                  width: "200px",
+                  color: "white",
+                  fontFamily: "fira mono",
                 }}
                 type="text"
                 name="email"
@@ -68,19 +77,22 @@ const Login = (props) => {
               <input
                 style={{
                   paddingTop: "15px",
-                  paddingLeft: "5px",
                   paddingBottom: "5px",
                   border: "none",
                   fontSize: "15px",
-                  borderBottom: "2px solid #757575",
-                  backgroundColor: "#f9f9f9",
+                  backgroundColor: "#06069A",
+                  borderBottom: "2px solid white",
+                  width: "200px",
+                  color: "white",
+                  fontFamily: "fira mono",
                 }}
-                type="text"
+                type="password"
                 name="password"
                 placeholder="Password"
                 ref={register}
               />
             </label>
+            <br />
             <br />
             <br />
             <input className={styles.button} type="submit" />
@@ -99,7 +111,7 @@ const SignUp = () => {
 
   const onSubmit = async (data) => {
     try {
-      let response = await fetch("https://alibi-backend.herokuapp.com/signup", {
+      let response = await fetch("http://localhost:5000/signup", {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -131,6 +143,7 @@ const SignUp = () => {
               fontFamily: "Vollkorn",
               fontSize: "36px",
               marginBottom: "20px",
+              color: "white",
             }}
           >
             {" "}
@@ -142,12 +155,14 @@ const SignUp = () => {
               <input
                 style={{
                   paddingTop: "15px",
-                  paddingLeft: "5px",
                   paddingBottom: "5px",
                   border: "none",
                   fontSize: "15px",
-                  borderBottom: "2px solid #757575",
-                  backgroundColor: "#f9f9f9",
+                  backgroundColor: "#06069A",
+                  borderBottom: "2px solid white",
+                  width: "200px",
+                  color: "white",
+                  fontFamily: "fira mono",
                 }}
                 type="text"
                 name="firstName"
@@ -161,12 +176,14 @@ const SignUp = () => {
               <input
                 style={{
                   paddingTop: "15px",
-                  paddingLeft: "5px",
                   paddingBottom: "5px",
                   border: "none",
                   fontSize: "15px",
-                  borderBottom: "2px solid #757575",
-                  backgroundColor: "#f9f9f9",
+                  backgroundColor: "#06069A",
+                  borderBottom: "2px solid white",
+                  width: "200px",
+                  color: "white",
+                  fontFamily: "fira mono",
                 }}
                 type="text"
                 name="lastName"
@@ -180,12 +197,14 @@ const SignUp = () => {
               <input
                 style={{
                   paddingTop: "15px",
-                  paddingLeft: "5px",
                   paddingBottom: "5px",
                   border: "none",
                   fontSize: "15px",
-                  borderBottom: "2px solid #757575",
-                  backgroundColor: "#f9f9f9",
+                  backgroundColor: "#06069A",
+                  borderBottom: "2px solid white",
+                  width: "200px",
+                  color: "white",
+                  fontFamily: "fira mono",
                 }}
                 type="text"
                 name="email"
@@ -199,19 +218,22 @@ const SignUp = () => {
               <input
                 style={{
                   paddingTop: "15px",
-                  paddingLeft: "5px",
                   paddingBottom: "5px",
                   border: "none",
                   fontSize: "15px",
-                  borderBottom: "2px solid #757575",
-                  backgroundColor: "#f9f9f9",
+                  backgroundColor: "#06069A",
+                  borderBottom: "2px solid white",
+                  width: "200px",
+                  color: "white",
+                  fontFamily: "fira mono",
                 }}
-                type="text"
+                type="password"
                 name="password"
                 placeholder="Password"
                 ref={register}
               />
             </label>
+            <br />
             <br />
             <br />
             <input className={styles.button} type="submit" />
@@ -224,12 +246,29 @@ const SignUp = () => {
 
 const SignUpIn = () => {
   return (
-    <div className={styles.container}>
+    <div
+      style={{
+        marginLeft: "250px",
+        marginTop: "5%",
+        marginRight: "10%",
+        display: "flex",
+        justifyContent: "center",
+        marginBottom: "10%",
+      }}
+    >
       <div
-        style={{ marginTop: "10%", display: "flex", justifyContent: "center" }}
+        style={{
+          padding: "50px",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          backgroundColor: "#06069A",
+          width: "700px",
+          minHeight: "600px",
+        }}
       >
         <Login />
-        <div style={{ padding: "10%" }} />
+        <div style={{ paddingBottom: "60px", paddingRight: "100px" }} />
         <SignUp />
       </div>
     </div>

@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Interactive from "./content/interactive";
 import Static from "./content/static";
-import InteractiveMedia from "./pages/interactivemedia";
-import StaticPoetry from "./pages/staticpoetry";
 import About from "./pages/about";
 import Navbar from "./navigation/navbar";
 import Home from "./pages/home";
@@ -29,9 +27,9 @@ const App = () => {
           <Route path="/about" exact component={About} />
           <Route path="/interactive/:id" exact component={Interactive} />
           <Route path="/static/:id" exact component={Static} />
-          <Route path="/writeandcode" exact component={Submit} />
-          <Route path="/signupandin" exact component={SignUpIn} />
-          <Route path="/memine" exact component={Profile} />
+          <Route path="/write-code" exact component={Submit} />
+          <Route path="/signup-in" exact component={SignUpIn} />
+          <Route path="/me-mine/:id" exact component={Profile} />
         </UserContext.Provider>
       </Router>
     </div>

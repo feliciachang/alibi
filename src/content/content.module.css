@@ -4,6 +4,7 @@
   margin-bottom: 3%;
   border: 1px solid black;
   max-width: 27vh;
+  width: 27vh;
   height: 27vh;
   padding-left: 10px;
   color: #06069a;
@@ -33,17 +34,6 @@
   font-weight: normal;
   line-height: 0.8em;
   font-family: "fira mono";
-  word-wrap: break-word;
-}
-
-.content:hover h3 {
-  padding: 0px;
-  margin-left: -20px;
-  margin-top: -5px;
-  width: 25vh;
-  font-size: 1.5vh;
-  font-weight: normal;
-  line-height: 1em;
   word-wrap: break-word;
 }
 

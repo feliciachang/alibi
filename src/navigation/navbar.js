@@ -26,7 +26,7 @@ const Navbar = () => {
               padding: 0,
             }}
           />
-          <Link to="/writeandcode">Write/Code</Link>
+          <Link to="/write-code">Write/Code</Link>
           <hr
             style={{
               display: "block",
@@ -35,7 +35,7 @@ const Navbar = () => {
               padding: 0,
             }}
           />
-          <Link to="/signupandin">Sign Up/In</Link>
+          <Link to="/signup-in">Sign Up/In</Link>
           <hr
             style={{
               display: "block",
@@ -58,7 +58,7 @@ const Navbar = () => {
                 margin: 0,
               }}
             />
-            <Link to="/memine">Me/Mine</Link>
+            <Link to="/me-mine/:id ${user.id}">Me/Mine</Link>
           </div>
         )}
         <div className="divided">

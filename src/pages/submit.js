@@ -30,6 +30,7 @@ const Submit = () => {
     let staticJson;
     if (publish) {
       staticJson = {
+        id: user.id,
         title: title,
         text: body,
         published: true,
@@ -53,6 +54,8 @@ const Submit = () => {
       }
     } else {
       staticJson = {
+        id: 0,
+        userId: user.id,
         title: title,
         text: body,
         published: false,

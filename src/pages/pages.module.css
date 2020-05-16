@@ -13,6 +13,13 @@
   flex-wrap: wrap;
 }
 
+.flexGrid2 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 2%;
+  margin-top: 2%;
+}
+
 .title {
   margin-left: 10%;
   margin-top: 5%;
