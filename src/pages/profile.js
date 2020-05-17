@@ -49,12 +49,22 @@ const Profile = () => {
       >
         {user.firstName} {user.lastName}
       </div>
-
+      <br />
+      <br />
       <div>
         {poems == null ? (
           <div>
             <p>publish your first piece</p>
-            <button className={styles.button}>write/code</button>
+            <button
+              className={styles.button}
+              onClick={() =>
+                history.push({
+                  pathname: "/write-code",
+                })
+              }
+            >
+              write/code
+            </button>
           </div>
         ) : (
           <div>
