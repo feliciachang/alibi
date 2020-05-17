@@ -1,17 +1,19 @@
 import React, { useState, useContext } from "react";
+import { withRouter, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import styles from "./pages.module.css";
 
 import { UserContext } from "../UserContext";
-import { withRouter } from "react-router-dom";
 
 const Login = (props) => {
   const { register, handleSubmit } = useForm();
   const [success, setSuccess] = useState();
+  let history = useHistory();
 
   const { user, setUser } = useContext(UserContext);
 
   const onSubmit = async (data) => {
+    setSuccess(1); // loading
     try {
       let response = await fetch("https://alibi-backend.herokuapp.com/login", {
         headers: {
@@ -23,10 +25,10 @@ const Login = (props) => {
       });
       let users = await response.json();
       if (users.message === false) {
-        setSuccess(false);
+        setSuccess(2); // failure
       } else {
-        setSuccess(true);
         setUser(users);
+        history.goBack();
       }
     } catch (error) {
       console.log(error);
@@ -35,68 +37,88 @@ const Login = (props) => {
 
   return (
     <div>
-      {success === true ? (
-        <div>success!</div>
+      {success === 2 ? (
+        <div
+          style={{
+            fontFamily: "fira mono",
+            color: "white",
+          }}
+        >
+          login failed.
+        </div>
       ) : (
         <div>
-          <div style={{ marginBottom: "20px" }}>
+          {success === 1 ? (
             <div
               style={{
-                fontFamily: "Vollkorn",
-                fontSize: "36px",
+                fontFamily: "fira mono",
                 color: "white",
               }}
             >
-              {" "}
-              Login{" "}
+              verifying.
             </div>
-          </div>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <label>
-              <input
-                style={{
-                  paddingTop: "15px",
-                  paddingBottom: "5px",
-                  border: "none",
-                  fontSize: "15px",
-                  backgroundColor: "#06069A",
-                  borderBottom: "2px solid white",
-                  width: "200px",
-                  color: "white",
-                  fontFamily: "fira mono",
-                }}
-                type="text"
-                name="email"
-                placeholder="Email"
-                ref={register}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-              <input
-                style={{
-                  paddingTop: "15px",
-                  paddingBottom: "5px",
-                  border: "none",
-                  fontSize: "15px",
-                  backgroundColor: "#06069A",
-                  borderBottom: "2px solid white",
-                  width: "200px",
-                  color: "white",
-                  fontFamily: "fira mono",
-                }}
-                type="password"
-                name="password"
-                placeholder="Password"
-                ref={register}
-              />
-            </label>
-            <br />
-            <br />
-            <br />
-            <input className={styles.button} type="submit" />
-          </form>
+          ) : (
+            <div>
+              <div style={{ marginBottom: "20px" }}>
+                <div
+                  style={{
+                    fontFamily: "Vollkorn",
+                    fontSize: "36px",
+                    color: "white",
+                  }}
+                >
+                  {" "}
+                  Login{" "}
+                </div>
+              </div>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <label>
+                  <input
+                    style={{
+                      paddingTop: "15px",
+                      paddingBottom: "5px",
+                      border: "none",
+                      fontSize: "15px",
+                      backgroundColor: "#06069A",
+                      borderBottom: "2px solid white",
+                      width: "200px",
+                      color: "white",
+                      fontFamily: "fira mono",
+                    }}
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                    ref={register}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <input
+                    style={{
+                      paddingTop: "15px",
+                      paddingBottom: "5px",
+                      border: "none",
+                      fontSize: "15px",
+                      backgroundColor: "#06069A",
+                      borderBottom: "2px solid white",
+                      width: "200px",
+                      color: "white",
+                      fontFamily: "fira mono",
+                    }}
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    ref={register}
+                  />
+                </label>
+                <br />
+                <br />
+                <br />
+                <input className={styles.button} type="submit" />
+              </form>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -106,6 +128,7 @@ const Login = (props) => {
 const SignUp = () => {
   const { register, handleSubmit } = useForm();
   const [success, setSuccess] = useState();
+  let history = useHistory();
 
   const { user, setUser } = useContext(UserContext);
 
@@ -120,12 +143,11 @@ const SignUp = () => {
         body: JSON.stringify(data),
       });
       let users = await response.json();
-      console.log(users.message);
-      if (users.message) {
-        setSuccess(true);
+      if (users.message === false) {
+        setSuccess(2); // failure
       } else {
-        setSuccess(false);
         setUser(users);
+        history.goBack();
       }
     } catch (error) {
       console.log(error);
@@ -134,110 +156,130 @@ const SignUp = () => {
 
   return (
     <div>
-      {success === true ? (
-        <div>success!</div>
+      {success === 2 ? (
+        <div
+          style={{
+            fontFamily: "fira mono",
+            color: "white",
+          }}
+        >
+          sign up failed.
+        </div>
       ) : (
         <div>
-          <div
-            style={{
-              fontFamily: "Vollkorn",
-              fontSize: "36px",
-              marginBottom: "20px",
-              color: "white",
-            }}
-          >
-            {" "}
-            Sign Up{" "}
-          </div>
+          {success === 1 ? (
+            <div
+              style={{
+                fontFamily: "fira mono",
+                color: "white",
+              }}
+            >
+              verifying.
+            </div>
+          ) : (
+            <div>
+              <div
+                style={{
+                  fontFamily: "Vollkorn",
+                  fontSize: "36px",
+                  marginBottom: "20px",
+                  color: "white",
+                }}
+              >
+                {" "}
+                Sign Up{" "}
+              </div>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <label>
-              <input
-                style={{
-                  paddingTop: "15px",
-                  paddingBottom: "5px",
-                  border: "none",
-                  fontSize: "15px",
-                  backgroundColor: "#06069A",
-                  borderBottom: "2px solid white",
-                  width: "200px",
-                  color: "white",
-                  fontFamily: "fira mono",
-                }}
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                ref={register}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-              <input
-                style={{
-                  paddingTop: "15px",
-                  paddingBottom: "5px",
-                  border: "none",
-                  fontSize: "15px",
-                  backgroundColor: "#06069A",
-                  borderBottom: "2px solid white",
-                  width: "200px",
-                  color: "white",
-                  fontFamily: "fira mono",
-                }}
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                ref={register}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-              <input
-                style={{
-                  paddingTop: "15px",
-                  paddingBottom: "5px",
-                  border: "none",
-                  fontSize: "15px",
-                  backgroundColor: "#06069A",
-                  borderBottom: "2px solid white",
-                  width: "200px",
-                  color: "white",
-                  fontFamily: "fira mono",
-                }}
-                type="text"
-                name="email"
-                placeholder="Email"
-                ref={register}
-              />
-            </label>
-            <br />
-            <br />
-            <label>
-              <input
-                style={{
-                  paddingTop: "15px",
-                  paddingBottom: "5px",
-                  border: "none",
-                  fontSize: "15px",
-                  backgroundColor: "#06069A",
-                  borderBottom: "2px solid white",
-                  width: "200px",
-                  color: "white",
-                  fontFamily: "fira mono",
-                }}
-                type="password"
-                name="password"
-                placeholder="Password"
-                ref={register}
-              />
-            </label>
-            <br />
-            <br />
-            <br />
-            <input className={styles.button} type="submit" />
-          </form>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <label>
+                  <input
+                    style={{
+                      paddingTop: "15px",
+                      paddingBottom: "5px",
+                      border: "none",
+                      fontSize: "15px",
+                      backgroundColor: "#06069A",
+                      borderBottom: "2px solid white",
+                      width: "200px",
+                      color: "white",
+                      fontFamily: "fira mono",
+                    }}
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    ref={register}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <input
+                    style={{
+                      paddingTop: "15px",
+                      paddingBottom: "5px",
+                      border: "none",
+                      fontSize: "15px",
+                      backgroundColor: "#06069A",
+                      borderBottom: "2px solid white",
+                      width: "200px",
+                      color: "white",
+                      fontFamily: "fira mono",
+                    }}
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    ref={register}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <input
+                    style={{
+                      paddingTop: "15px",
+                      paddingBottom: "5px",
+                      border: "none",
+                      fontSize: "15px",
+                      backgroundColor: "#06069A",
+                      borderBottom: "2px solid white",
+                      width: "200px",
+                      color: "white",
+                      fontFamily: "fira mono",
+                    }}
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                    ref={register}
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  <input
+                    style={{
+                      paddingTop: "15px",
+                      paddingBottom: "5px",
+                      border: "none",
+                      fontSize: "15px",
+                      backgroundColor: "#06069A",
+                      borderBottom: "2px solid white",
+                      width: "200px",
+                      color: "white",
+                      fontFamily: "fira mono",
+                    }}
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    ref={register}
+                  />
+                </label>
+                <br />
+                <br />
+                <br />
+                <input className={styles.button} type="submit" />
+              </form>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -275,4 +317,4 @@ const SignUpIn = () => {
   );
 };
 
-export default SignUpIn;
+export default withRouter(SignUpIn);
