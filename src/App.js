@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Interactive from "./content/interactive";
+import Archive from "./content/archive";
 import Static from "./content/static";
 import About from "./pages/about";
 import Navbar from "./navigation/navbar";
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
           <Route path="/interactive/:id" exact component={Interactive} />
+          <Route path="/archive/:id" exact component={Archive} />
           <Route path="/static/:id" exact component={Static} />
           <Route path="/write-code" exact component={Submit} />
           <Route path="/signup-in" exact component={SignUpIn} />

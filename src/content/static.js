@@ -3,25 +3,51 @@ import { useParams, withRouter, useLocation } from "react-router-dom";
 const contentful = require("contentful");
 
 const Static = (props) => {
-  const [content, setContent] = useState(null);
-  const location = useLocation();
+  const [content, setContent] = useState();
+  const [author, setAuthor] = useState();
 
   useEffect(() => {
     const getContent = async () => {
-      let client = contentful.createClient({
-        space: "zt0mvirckb5a",
-        accessToken: "KkHd0KIkU7CWpGQ6ih1wagGPdt_JTqO31gJaQ4skQq4",
-      });
       let searchParams = new URLSearchParams(window.location.search);
 
-      let response = await client.getEntry(searchParams.get("id"));
-      console.log(response.fields);
+      try {
+        let id = searchParams.get("id");
+        let response = await fetch(
+          "https://alibi-backend.herokuapp.com/getonepoem",
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            method: "post",
+            body: JSON.stringify({ id: id }),
+          }
+        );
+        let db = await response.json();
+        if (db != null) {
+          try {
+            let response = await fetch(
+              "https://alibi-backend.herokuapp.com/finduser",
+              {
+                headers: {
+                  Accept: "application/json",
+                  "Content-Type": "application/json",
+                },
+                method: "post",
+                body: JSON.stringify({ id: db[0].userId }),
+              }
+            );
+            let a = await response.json();
+            setAuthor(a);
+          } catch (error) {
+            console.log(error);
+          }
 
-      setContent(response.fields);
-
-      //   let asset = await client.getAsset("SwkqadbMXFiT0oKlgMwBl");
-      //   console.log("cover photos", asset.fields.file.url);
-      //   setPhoto('https:' + asset.fields.file.url);
+          setContent(db[0]);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     getContent();
@@ -41,13 +67,15 @@ const Static = (props) => {
     >
       {content != null ? (
         <div style={{ fontFamily: "Vollkorn" }}>
-          <h1>{content.title}</h1>
-          <div>{content.author}</div>
+          <h1>{content.title[0].children[0].text}</h1>
+          <div>
+            {author.firstName} {author.lastName}
+          </div>
           <br />
           <br />
           <div>
-            {content.poetry.content.map((c, i) => (
-              <div key={i}>{c.content[0].value}</div>
+            {content.text[0].children.map((c, i) => (
+              <div key={i}>{c.text}</div>
             ))}
           </div>
         </div>

@@ -16,6 +16,12 @@ const Content = (props) => {
     } else if (mediaType === "static") {
       console.log("redirecting static");
       history.push({
+        pathname: "/archive/" + id,
+        search: "?id=" + id,
+      });
+    } else if (mediaType === "heroku") {
+      console.log("redirecting static");
+      history.push({
         pathname: "/static/" + id,
         search: "?id=" + id,
       });

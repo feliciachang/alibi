@@ -134,7 +134,7 @@ const SignUp = () => {
 
   const onSubmit = async (data) => {
     try {
-      let response = await fetch("http://localhost:5000/signup", {
+      let response = await fetch("https://alibi-backend.herokuapp.com/signup", {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

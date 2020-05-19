@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState, useMemo } from "react";
+import { withRouter, useHistory } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import styles from "./pages.module.css";
 import Content from "../content/content";
@@ -8,17 +9,22 @@ const Profile = () => {
   const [poems, setPoems] = useState();
   const [author, setAuthor] = useState();
 
+  let history = useHistory();
+
   useEffect(() => {
     const getProfile = async () => {
       try {
-        let response = await fetch("http://localhost:5000/getuserpoems", {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          method: "post",
-          body: JSON.stringify({ id: user.id }),
-        });
+        let response = await fetch(
+          "https://alibi-backend.herokuapp.com/getuserpoems",
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            method: "post",
+            body: JSON.stringify({ id: user.id }),
+          }
+        );
         let db = await response.json();
         console.log(db[0]);
         if (db != null) {
@@ -79,7 +85,7 @@ const Profile = () => {
                         text={p.text}
                         author={author}
                         id={p.id}
-                        mediaType={"static"}
+                        mediaType={"heroku"}
                       />
                     ) : (
                       <div></div>
@@ -100,7 +106,7 @@ const Profile = () => {
                         text={p.text}
                         author={author}
                         id={p.id}
-                        mediaType={"static"}
+                        mediaType={"heroku"}
                       />
                     ) : (
                       <div></div>
@@ -116,14 +122,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
-
-// {poems === null ? (
-//   <div>you don't have any poems yet!</div>
-// ) : (
-//   <div>
-//     {poems.map((p, i) => (
-//       <div>{p.title}</div>
-//     ))}
-//   </div>
-// )}
+export default withRouter(Profile);

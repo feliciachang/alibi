@@ -33,17 +33,20 @@ const Submit = () => {
         id: user.id,
         title: title,
         text: body,
-        published: true,
+        published: false,
       };
       try {
-        let response = await fetch("http://localhost:5000/publishpoem", {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          method: "post",
-          body: JSON.stringify(staticJson),
-        });
+        let response = await fetch(
+          "https://alibi-backend.herokuapp.com/publishpoem",
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            method: "post",
+            body: JSON.stringify(staticJson),
+          }
+        );
         let poem = await response.json();
         console.log(poem.message);
         if (poem.message === true) {
@@ -60,6 +63,7 @@ const Submit = () => {
         text: body,
         published: false,
       };
+      console.log("trying to save");
       try {
         let response = await fetch(
           "https://alibi-backend.herokuapp.com/savepoem",

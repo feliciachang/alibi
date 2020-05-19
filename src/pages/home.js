@@ -110,6 +110,7 @@ class Demo extends Component {
 
 function Home() {
   const [content, setContent] = useState(null);
+  const [fromHeroku, setFromHeroku] = useState(null);
 
   useEffect(() => {
     const getContent = async () => {
@@ -123,7 +124,21 @@ function Home() {
       setContent(response.items.slice(0, 3));
     };
 
+    // const getFromHeroku = async () => {
+    //   let response = await fetch("http://localhost:5000/getonepoem", {
+    //     headers: {
+    //       Accept: "application/json",
+    //       "Content-Type": "application/json",
+    //     },
+    //     method: "post",
+    //     body: JSON.stringify({ id: id }),
+    //   });
+    //   let db = await response.json();
+    //   setFromHeroku(db);
+    // }
+
     getContent();
+    // getFromHeroku();
   }, []);
 
   return (
@@ -140,29 +155,7 @@ function Home() {
           </div>
         )}
         <div className={styles.title}>
-          <button className={styles.button}>Static Poetry</button>
-        </div>
-        <div style={{ marginLeft: "10vw" }}>
-          {content != null ? (
-            <div className={styles.flexGrid}>
-              {content.map((content, i) => (
-                <Content
-                  key={i}
-                  title={content.fields.title}
-                  author={content.fields.author}
-                  mediaType={"static"}
-                  id={content.sys.id}
-                />
-              ))}
-            </div>
-          ) : (
-            <div>
-              <h5> loading content </h5>
-            </div>
-          )}
-        </div>
-        <div className={styles.title}>
-          <button className={styles.button}>Interactive Media</button>
+          <button className={styles.button}>Interactive</button>
         </div>
         <div style={{ marginLeft: "10vw" }}>
           <div className={styles.flexGrid}>
@@ -188,6 +181,28 @@ function Home() {
               mediaType="interactive"
             />
           </div>
+        </div>
+        <div className={styles.title}>
+          <button className={styles.button}>Static</button>
+        </div>
+        <div style={{ marginLeft: "10vw" }}>
+          {content != null ? (
+            <div className={styles.flexGrid}>
+              {content.map((content, i) => (
+                <Content
+                  key={i}
+                  title={content.fields.title}
+                  author={content.fields.author}
+                  mediaType={"static"}
+                  id={content.sys.id}
+                />
+              ))}
+            </div>
+          ) : (
+            <div>
+              <h5> loading content </h5>
+            </div>
+          )}
         </div>
       </div>
     </div>
