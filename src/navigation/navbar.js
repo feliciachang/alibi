@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./navbar.module.css";
 import { UserContext } from "../UserContext";
@@ -9,13 +9,16 @@ const Navbar = () => {
   return (
     <div>
       <div>
-        <div className={styles.title}>
-          <a href="/about" style={{ fontSize: "40px" }}>
-            {" "}
-            Alibi{" "}
-          </a>
-        </div>
         <div className={styles.leftnav}>
+          <div>
+            <Link
+              to="/about"
+              style={{ fontSize: "40px", fontFamily: "Vollkorn" }}
+            >
+              {" "}
+              Alibi{" "}
+            </Link>
+          </div>
           <div style={{ paddingBottom: "40px" }}></div>
           <Link to="/">Read/Play</Link>
           <hr

@@ -38,8 +38,8 @@
 /* @media only screen and (max-width: 1050px) { */
 
 .title {
-  margin-top: 5%;
-  margin-left: 5%;
+  margin-top: 60px;
+  margin-left: 5vw;
   font-family: Vollkorn;
   position: fixed;
   z-index: 1;
@@ -55,18 +55,21 @@
 }
 
 .leftnav {
-  padding-top: 10%;
+  padding-top: 50px;
   height: 100%;
-  width: 135px;
+  width: 13vw;
+  min-width: 135px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   overflow: auto;
+  display: inline-block;
 }
 
 .leftnav a {
   padding: 10px 0px 0px 0px;
+  margin-left: 20px;
   text-decoration: none;
   font-size: 11px;
   color: #000;

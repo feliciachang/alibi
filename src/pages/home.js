@@ -121,7 +121,7 @@ function Home() {
 
       let response = await client.getEntries("staticPoetry");
       console.log(response.items);
-      setContent(response.items.slice(0, 3));
+      setContent(response.items.slice(0, 6));
     };
 
     // const getFromHeroku = async () => {
@@ -187,7 +187,7 @@ function Home() {
         </div>
         <div style={{ marginLeft: "10vw" }}>
           {content != null ? (
-            <div className={styles.flexGrid}>
+            <div className={styles.flexGrid2}>
               {content.map((content, i) => (
                 <Content
                   key={i}

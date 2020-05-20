@@ -3,23 +3,28 @@
   margin-right: 5%;
   margin-bottom: 3%;
   border: 1px solid black;
-  max-width: 27vh;
-  width: 27vh;
-  height: 27vh;
+  max-width: 210px;
+  width: 210px;
+  height: 210px;
   padding-left: 10px;
   color: #06069a;
 }
 
 .content:hover {
-  transform: translateY(-0.5em) scale(1);
+  flex: 1;
   background-color: #06069a;
   color: white;
   border-radius: 50%;
+  max-width: 210px;
+  width: 210px;
+  height: 210px;
+  padding-left: 10px;
+  border: none;
 }
 
 .content h1 {
-  width: 25vh;
-  font-size: 4vh;
+  width: 200px;
+  font-size: 30px;
   font-weight: normal;
   line-height: 1em;
   font-family: "Vollkorn";
@@ -29,8 +34,8 @@
   padding: 0px;
   margin-left: -20px;
   margin-top: -5px;
-  width: 25vh;
-  font-size: 12vh;
+  width: 200px;
+  font-size: 100px;
   font-weight: normal;
   line-height: 0.8em;
   font-family: "fira mono";
@@ -38,7 +43,7 @@
 }
 
 .content h3 {
-  font-size: 1.5vh;
+  font-size: 12px;
   line-height: 1em;
   font-weight: normal;
 }
