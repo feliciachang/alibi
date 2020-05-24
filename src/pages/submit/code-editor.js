@@ -130,27 +130,29 @@ const Code = ({ setCode }) => {
             setPublish={setPublish}
             handleSubmit={handleSubmit}
           />
-          <div
-            style={{
-              borderLeft: "2px solid white",
-              padding: "10px",
-              fontFamily: "Vollkorn",
-              fontSize: "20px",
-              backgroundColor: "#06069a",
-              color: "white",
-            }}
-          >
-            <Slate
-              editor={editor}
-              value={title}
-              onChange={(value) => {
-                setTitle(value);
-                const content = JSON.stringify(value);
-                sessionStorage.setItem("codetitle", content);
+          <div style={{ borderLeft: "10px solid #06069a" }}>
+            <div
+              style={{
+                borderLeft: "2px solid white",
+                padding: "10px",
+                fontFamily: "Vollkorn",
+                fontSize: "20px",
+                backgroundColor: "#06069a",
+                color: "white",
               }}
             >
-              <Editable />
-            </Slate>
+              <Slate
+                editor={editor}
+                value={title}
+                onChange={(value) => {
+                  setTitle(value);
+                  const content = JSON.stringify(value);
+                  sessionStorage.setItem("codetitle", content);
+                }}
+              >
+                <Editable />
+              </Slate>
+            </div>
           </div>
           <textarea
             value={text}
@@ -167,49 +169,3 @@ const Code = ({ setCode }) => {
 };
 
 export default Code;
-
-{
-  /* <div>
-<div
-  style={{
-    display: "flex",
-    justifyContent: "flex-end",
-    marginBottom: "10px",
-  }}
->
-  <div style={{ marginRight: "10px" }}>{save}</div>
-  <div style={{ marginRight: "10px" }}>
-    <button
-      className={styles.button}
-      onClick={() => {
-        setCompile(true);
-      }}
-    >
-      {" "}
-      Compile{" "}
-    </button>
-  </div>
-  <div style={{ marginRight: "10px" }}>
-    <button
-      className={styles.button}
-      onClick={() => {
-        setPublish(false);
-        handleSubmit();
-      }}
-    >
-      {" "}
-      Save{" "}
-    </button>
-  </div>
-  <button
-    className={styles.button}
-    onClick={() => {
-      setPublish(true);
-      handleSubmit();
-    }}
-  >
-    {" "}
-    Publish{" "}
-  </button>
-</div> */
-}
