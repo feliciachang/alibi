@@ -1,0 +1,17 @@
+.iframe {
+  position: absolute;
+  top: 10%;
+  left: 250px;
+  right: 0;
+  bottom: 0;
+  padding-top: 20px;
+}
+
+.textarea {
+  width: 100%;
+  height: 500px;
+  border: none;
+  background-color: #06069a;
+  color: white;
+  overflow-y: scroll;
+}

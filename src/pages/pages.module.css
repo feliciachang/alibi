@@ -33,6 +33,15 @@
   font-family: "fira mono";
 }
 
+.inversebutton {
+  border: 1px solid white;
+  background-color: #06069a;
+  color: white;
+  border-radius: 2rem;
+  font-size: 14px;
+  font-family: "fira mono";
+}
+
 .input {
   padding-top: "15px";
   padding-left: "5px";
