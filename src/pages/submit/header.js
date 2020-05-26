@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import styles from "../pages.module.css";
-import { compile } from "../compile.svg";
 
 export const CodeHeader = ({
   setCode,

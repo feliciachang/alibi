@@ -1,12 +1,15 @@
 import React, { useState, useContext, useMemo } from "react";
+import { withRouter, useHistory } from "react-router-dom";
 import { CodeHeader } from "./header";
 import { createEditor } from "slate";
 import { Slate, Editable, withReact } from "slate-react";
+import Editor from "./codemirror";
 import styles from "./editor.module.css";
 
 import { UserContext } from "../../UserContext";
 
 const Code = ({ setCode }) => {
+  let history = useHistory();
   const editor = useMemo(() => withReact(createEditor()), []);
   const [success, setSuccess] = useState();
   const [save, setSave] = useState("");
@@ -24,7 +27,7 @@ const Code = ({ setCode }) => {
     ]
   );
 
-  const [text, setText] = useState(
+  const [js, setJS] = useState(
     sessionStorage.getItem("codetext") ||
       `
   <h3>This is a real-time HTML editor</h3>
@@ -43,61 +46,61 @@ const Code = ({ setCode }) => {
   );
 
   const handleSubmit = async () => {
-    let staticJson;
-    if (publish) {
-      staticJson = {
-        id: user.id,
-        title: title,
-        text: text,
-        published: false,
-      };
-      try {
-        let response = await fetch(
-          "https://alibi-backend.herokuapp.com/publishcode",
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            method: "post",
-            body: JSON.stringify(staticJson),
-          }
-        );
-        let poem = await response.json();
-        if (poem.message === true) {
-          setSuccess(true);
-        }
-      } catch (error) {
-        console.log(error);
-      }
+    if (user.id == 0) {
+      history.push({
+        pathname: "/signup-in",
+      });
     } else {
-      staticJson = {
-        id: 0,
-        userId: user.id,
-        title: title,
-        text: text,
-        published: false,
-      };
-      try {
-        let response = await fetch(
-          "https://alibi-backend.herokuapp.com/savecode",
-          {
+      let staticJson;
+      if (publish) {
+        staticJson = {
+          id: user.id,
+          title: title,
+          text: js,
+          published: false,
+        };
+        try {
+          let response = await fetch("http://localhost:5000/publishcode", {
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
             },
             method: "post",
             body: JSON.stringify(staticJson),
+          });
+          let poem = await response.json();
+          if (poem.message === true) {
+            setSuccess(true);
           }
-        );
-        let poem = await response.json();
-        if (poem.message === true) {
-          setSave("Saved!");
-        } else {
-          setSave(poem.message);
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
+      } else {
+        staticJson = {
+          id: 0,
+          userId: user.id,
+          title: title,
+          text: js,
+          published: false,
+        };
+        try {
+          let response = await fetch("http://localhost:5000/savecode", {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            method: "post",
+            body: JSON.stringify(staticJson),
+          });
+          let poem = await response.json();
+          if (poem.message === true) {
+            setSave("Saved!");
+          } else {
+            setSave(poem.message);
+          }
+        } catch (error) {
+          console.log(error);
+        }
       }
     }
   };
@@ -117,8 +120,8 @@ const Code = ({ setCode }) => {
             <iframe
               title="Webview"
               style={{ width: "100%", height: "100%" }}
-              srcDoc={text}
-              frameborder="0"
+              srcDoc={js}
+              frameBorder="0"
             />
           </div>
         </div>
@@ -130,15 +133,14 @@ const Code = ({ setCode }) => {
             setPublish={setPublish}
             handleSubmit={handleSubmit}
           />
-          <div style={{ borderLeft: "10px solid #06069a" }}>
+          <div>
+            <br />
             <div
               style={{
-                borderLeft: "2px solid white",
+                borderLeft: "2px solid black",
                 padding: "10px",
                 fontFamily: "Vollkorn",
                 fontSize: "20px",
-                backgroundColor: "#06069a",
-                color: "white",
               }}
             >
               <Slate
@@ -153,19 +155,13 @@ const Code = ({ setCode }) => {
                 <Editable />
               </Slate>
             </div>
+            <br />
           </div>
-          <textarea
-            value={text}
-            className={styles.textarea}
-            onChange={(event) => {
-              setText(event.target.value);
-              sessionStorage.setItem("codetext", event.target.value);
-            }}
-          />
+          <Editor js={js} setJS={setJS} />
         </div>
       )}
     </div>
   );
 };
 
-export default Code;
+export default withRouter(Code);

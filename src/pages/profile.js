@@ -14,17 +14,14 @@ const Profile = () => {
   useEffect(() => {
     const getProfile = async () => {
       try {
-        let response = await fetch(
-          "https://alibi-backend.herokuapp.com/getuserpoems",
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            method: "post",
-            body: JSON.stringify({ id: user.id }),
-          }
-        );
+        let response = await fetch("http://localhost:5000/getuserpoems", {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          method: "post",
+          body: JSON.stringify({ id: user.id }),
+        });
         let db = await response.json();
         console.log(db[0]);
         if (db != null) {
