@@ -69,14 +69,17 @@ const Invitation = () => {
   }, [window.innerWidth, window.innerHeight]);
 
   const confirmInvitation = async () => {
-    let response = await fetch("http://localhost:5000/confirminvitation", {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      method: "post",
-      body: JSON.stringify({ code: input }),
-    });
+    let response = await fetch(
+      "https://alibi-backend.herokuapp.com/confirminvitation",
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "post",
+        body: JSON.stringify({ code: input }),
+      }
+    );
     let db = await response.json();
     if (db.message == true) {
       setInvite(true);
