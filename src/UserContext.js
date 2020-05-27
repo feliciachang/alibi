@@ -2,6 +2,8 @@ import { createContext } from "react";
 
 export const UserContext = createContext(0);
 
+export const InviteContext = createContext(0);
+
 // const UserContext = React.createContext({
 //   id: 0,
 //   setId: () => {},

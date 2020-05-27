@@ -15,7 +15,7 @@ const Login = (props) => {
   const onSubmit = async (data) => {
     setSuccess(1); // loading
     try {
-      let response = await fetch("http://localhost:5000/login", {
+      let response = await fetch("https://alibi-backend.herokuapp.com/login", {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -134,7 +134,7 @@ const SignUp = () => {
 
   const onSubmit = async (data) => {
     try {
-      let response = await fetch("http://localhost:5000/signup", {
+      let response = await fetch("https://alibi-backend.herokuapp.com/signup", {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

@@ -60,14 +60,17 @@ const Code = ({ setCode }) => {
           published: false,
         };
         try {
-          let response = await fetch("http://localhost:5000/publishcode", {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            method: "post",
-            body: JSON.stringify(staticJson),
-          });
+          let response = await fetch(
+            "https://alibi-backend.herokuapp.com/publishcode",
+            {
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+              method: "post",
+              body: JSON.stringify(staticJson),
+            }
+          );
           let poem = await response.json();
           if (poem.message === true) {
             setSuccess(true);
@@ -84,14 +87,17 @@ const Code = ({ setCode }) => {
           published: false,
         };
         try {
-          let response = await fetch("http://localhost:5000/savecode", {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            method: "post",
-            body: JSON.stringify(staticJson),
-          });
+          let response = await fetch(
+            "https://alibi-backend.herokuapp.com/savecode",
+            {
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+              method: "post",
+              body: JSON.stringify(staticJson),
+            }
+          );
           let poem = await response.json();
           if (poem.message === true) {
             setSave("Saved!");

@@ -1,5 +1,11 @@
-import React, { useState, useMemo } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, { useState, useMemo, useContext } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  withRouter,
+  Redirect,
+} from "react-router-dom";
 
 import Interactive from "./content/interactive";
 import Archive from "./content/archive";
@@ -10,31 +16,66 @@ import Home from "./pages/home";
 import Submit from "./pages/submit";
 import SignUpIn from "./pages/signupin";
 import Profile from "./pages/profile";
+import Invitation from "./pages/invitation/invitation";
 
-import { UserContext } from "./UserContext";
+import { UserContext, InviteContext } from "./UserContext";
 
-const App = () => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const { invite, setInvite } = useContext(InviteContext);
+  console.log("privateRoute", invite);
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        invite === "true" ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/invitation" />
+        )
+      }
+    />
+  );
+};
+
+const Container = withRouter(({ location }) => {
   const [user, setUser] = useState({ id: 0 });
+  const [invite, setInvite] = useState(localStorage.getItem("code") || false);
 
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
+  const inv = useMemo(() => ({ invite, setInvite }), [invite, setInvite]);
 
-  console.log("app state", value);
+  console.log("app state", invite);
   return (
     <div>
-      <Router>
+      <InviteContext.Provider value={inv}>
         <UserContext.Provider value={value}>
-          <Navbar />
-          <Route path="/" exact component={Home} />
-          <Route path="/about" exact component={About} />
-          <Route path="/interactive/:id" exact component={Interactive} />
-          <Route path="/archive/:id" exact component={Archive} />
-          <Route path="/static/:id" exact component={Static} />
-          <Route path="/write-code" exact component={Submit} />
-          <Route path="/signup-in" exact component={SignUpIn} />
-          <Route path="/me-mine/:id" exact component={Profile} />
+          {location.pathname != "/invitation" && <Navbar />}
+          <Switch>
+            <PrivateRoute path="/" exact component={Home} />
+            <PrivateRoute path="/about" exact component={About} />
+            <PrivateRoute
+              path="/interactive/:id"
+              exact
+              component={Interactive}
+            />
+            <PrivateRoute path="/archive/:id" exact component={Archive} />
+            <PrivateRoute path="/static/:id" exact component={Static} />
+            <PrivateRoute path="/write-code" exact component={Submit} />
+            <PrivateRoute path="/signup-in" exact component={SignUpIn} />
+            <PrivateRoute path="/me-mine/:id" exact component={Profile} />
+            <Route path="/invitation" exact component={Invitation} />
+          </Switch>
         </UserContext.Provider>
-      </Router>
+      </InviteContext.Provider>
     </div>
+  );
+});
+
+const App = () => {
+  return (
+    <Router>
+      <Container />
+    </Router>
   );
 };
 
