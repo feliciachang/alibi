@@ -39,7 +39,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
 const Container = withRouter(({ location }) => {
   const [user, setUser] = useState({ id: 0 });
-  const [invite, setInvite] = useState(localStorage.getItem("code") || false);
+  const [invite, setInvite] = useState(
+    sessionStorage.getItem("code") || "false"
+  );
 
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
   const inv = useMemo(() => ({ invite, setInvite }), [invite, setInvite]);

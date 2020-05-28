@@ -81,9 +81,10 @@ const Invitation = () => {
       }
     );
     let db = await response.json();
+    console.log("db message", db.message);
     if (db.message == true) {
-      setInvite(true);
-      localStorage.setItem("code", true);
+      setInvite("true");
+      sessionStorage.setItem("code", "true");
       history.push({ pathname: "/" });
     } else {
       setFail(true);
