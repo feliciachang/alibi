@@ -50,6 +50,7 @@ export const CodeHeader = ({
             height="18"
             viewBox="0 0 22 22"
             width="18"
+            padding="5px"
             fill="white"
             onClick={() => {
               setCompile(false);
@@ -65,6 +66,7 @@ export const CodeHeader = ({
           viewBox="0 0 22 22"
           width="18px"
           height="18px"
+          padding="5px"
           fill="white"
           onClick={() => {
             setCompile(true);
