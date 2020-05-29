@@ -42,7 +42,6 @@ const Static = (props) => {
           } catch (error) {
             console.log(error);
           }
-
           setContent(db[0]);
         }
       } catch (error) {
@@ -53,6 +52,7 @@ const Static = (props) => {
     getContent();
   }, []);
 
+  console.log("poem content", content);
   return (
     <div
       style={{
@@ -74,8 +74,12 @@ const Static = (props) => {
           <br />
           <br />
           <div>
-            {content.text[0].children.map((c, i) => (
-              <div key={i}>{c.text}</div>
+            {content.text.map((t, i) => (
+              <div key={i}>
+                {t.children.map((c, i) => (
+                  <div key={i}>{c.text}</div>
+                ))}
+              </div>
             ))}
           </div>
         </div>

@@ -32,6 +32,7 @@ const ProfileBody = ({ content, author }) => {
                 <div className={styles.flexGrid2}>
                   {p.published ? (
                     <Content
+                      key={i}
                       title={p.title[0].children[0].text}
                       text={p.text}
                       author={author}

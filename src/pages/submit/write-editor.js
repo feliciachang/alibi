@@ -33,6 +33,7 @@ const Write = ({ setCode }) => {
     ]
   );
 
+  console.log(body);
   const handleSubmit = async () => {
     if (user.id == 0) {
       history.push({
@@ -75,6 +76,7 @@ const Write = ({ setCode }) => {
           text: body,
           published: false,
         };
+        console.log("static json", staticJson);
         try {
           let response = await fetch(
             "https://alibi-backend.herokuapp.com/savepoem",
@@ -88,6 +90,7 @@ const Write = ({ setCode }) => {
             }
           );
           let poem = await response.json();
+          console.log("poem message", poem.message);
           if (poem.message === true) {
             setSave("Saved!");
             history.push({ pathname: "/me-mine/:id ${user.id}" });
