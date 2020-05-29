@@ -25,7 +25,7 @@ const Navbar = () => {
             style={{
               display: "block",
               border: 0,
-              borderTop: "1px solid #000",
+              borderTop: "1px solid rgb(192, 192, 192)",
               padding: 0,
             }}
           />
@@ -34,7 +34,7 @@ const Navbar = () => {
             style={{
               display: "block",
               border: 0,
-              borderTop: "1px solid #000",
+              borderTop: "1px solid rgb(192, 192, 192)",
               padding: 0,
             }}
           />
@@ -43,7 +43,7 @@ const Navbar = () => {
             style={{
               display: "block",
               border: 0,
-              borderTop: "1px solid #000",
+              borderTop: "1px solid rgb(192, 192, 192)",
               padding: 0,
             }}
           />
@@ -56,7 +56,7 @@ const Navbar = () => {
               style={{
                 display: "block",
                 border: 0,
-                borderTop: "1px solid #000",
+                borderTop: "1px solid rgb(192, 192, 192)",
                 padding: 0,
                 margin: 0,
               }}

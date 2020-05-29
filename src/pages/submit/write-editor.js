@@ -5,6 +5,7 @@ import { Slate, Editable, withReact } from "slate-react";
 import { WriteHeader } from "./header";
 
 import { UserContext } from "../../UserContext";
+import { useStaticRendering } from "mobx-react";
 
 const Write = ({ setCode }) => {
   const editor = useMemo(() => withReact(createEditor()), []);
@@ -61,6 +62,7 @@ const Write = ({ setCode }) => {
           let poem = await response.json();
           if (poem.message === true) {
             setSuccess(true);
+            history.push({ pathname: "/me-mine" + user.id });
           }
         } catch (error) {
           console.log(error);
@@ -88,6 +90,7 @@ const Write = ({ setCode }) => {
           let poem = await response.json();
           if (poem.message === true) {
             setSave("Saved!");
+            history.push({ pathname: "/me-mine/:id ${user.id}" });
           } else {
             setSave(poem.message);
           }

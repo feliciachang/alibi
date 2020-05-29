@@ -84,7 +84,7 @@ function Home() {
         <div className={styles.title}>
           <button className={styles.button}>Static</button>
         </div>
-        <div style={{ marginLeft: "10vw" }}>
+        <div style={{ marginLeft: "10vw", width: "80%" }}>
           {content != null ? (
             <div className={styles.flexGrid2}>
               {content.map((content, i) => (

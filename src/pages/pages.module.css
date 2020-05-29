@@ -27,7 +27,8 @@
 }
 
 .button {
-  border: 1px solid black;
+  border: 1px solid rgb(68, 68, 68);
+  color: rgb(46, 46, 46);
   border-radius: 2rem;
   font-size: 14px;
   font-family: "fira mono";

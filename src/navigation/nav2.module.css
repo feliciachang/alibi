@@ -1,0 +1,33 @@
+.leftnav {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3%;
+  padding-right: 3%;
+}
+
+.leftnav a {
+  float: left;
+  display: block;
+  text-decoration: none;
+  font-family: "Fira Mono";
+  color: #000;
+  font-size: 13px;
+}
+
+.navItem {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
