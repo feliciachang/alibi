@@ -42,6 +42,15 @@ const Circle = styled.div`
   top: ${(props) => props.y}px;
 `;
 
+const Button = styled.button`
+  background-color: #fff;
+  color: #06069a;
+  border-radius: 10px;
+  padding: 5px;
+  border: none;
+  font-family: "fira mono";
+`;
+
 const Invitation = () => {
   const [random, setRandom] = useState(null);
   const [showA, setShowA] = useState(false);
@@ -186,105 +195,137 @@ const Invitation = () => {
   return (
     <div>
       {random != null ? (
-        <div>
+        <>
           <div>
-            <div
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translateX(-50%)",
-                zIndex: 3,
-                fontFamily: "fira mono",
-                display: "flex",
-                flexDirection: "vertical-align",
-                justifyContent: "baseline",
+            <div>
+              <div
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  zIndex: 3,
+                  fontFamily: "fira mono",
+                  display: "flex",
+                  flexDirection: "vertical-align",
+                  justifyContent: "baseline",
+                }}
+              >
+                <input
+                  style={{
+                    paddingTop: "15px",
+                    paddingBottom: "5px",
+                    paddingLeft: "5px",
+                    border: "none",
+                    fontSize: "15px",
+                    border: "2px solid #06069A",
+                    width: "200px",
+                    fontFamily: "fira mono",
+                  }}
+                  type="email"
+                  name="invitation code"
+                  placeholder="invitation code"
+                  onChange={(e) => {
+                    setShowA(true);
+                    setInput(e.target.value);
+                  }}
+                  value={input}
+                />
+                <button
+                  style={{
+                    border: "none",
+                    backgroundColor: "#06069A",
+                    color: "white",
+                    fontFamily: "fira mono",
+                    paddingTop: "9px",
+                    fontSize: "15px",
+                  }}
+                  onClick={() => confirmInvitation()}
+                >
+                  Submit
+                </button>
+              </div>
+              <Alibi
+                onMouseEnter={() => setShowA(true)}
+                onMouseLeave={() => setShowA(false)}
+                pad={window.innerWidth / 5}
+                x={random[0][0]}
+                y={random[0][1]}
+              >
+                A
+              </Alibi>
+              <Alibi
+                onMouseEnter={() => setShowB(true)}
+                onMouseLeave={() => setShowB(false)}
+                pad={window.innerWidth / 5}
+                x={random[1][0]}
+                y={random[1][1]}
+              >
+                L
+              </Alibi>
+              <Alibi
+                onMouseEnter={() => setShowC(true)}
+                onMouseLeave={() => setShowC(false)}
+                pad={window.innerWidth / 5}
+                x={random[2][0]}
+                y={random[2][1]}
+              >
+                I
+              </Alibi>
+              <Alibi
+                onMouseEnter={() => setShowA(true)}
+                onMouseLeave={() => setShowA(false)}
+                pad={window.innerWidth / 5}
+                x={random[3][0]}
+                y={random[3][1]}
+              >
+                B
+              </Alibi>
+              <Alibi
+                onMouseEnter={() => setShowB(true)}
+                onMouseLeave={() => setShowB(false)}
+                pad={window.innerWidth / 5}
+                x={random[4][0]}
+                y={random[4][1]}
+              >
+                I
+              </Alibi>
+            </div>
+            {A}
+            {B}
+            {C}
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              top: "100%",
+              backgroundColor: "#06069A",
+              padding: "30%",
+              color: "white",
+              fontFamily: "fira mono",
+            }}
+          >
+            <div>Create | Play | Read | Relate</div>
+            <br />
+            <div>
+              Alibi is a creative platform for interactive media and writing,
+              seeking to disrupt the current information culture in which
+              content is consumed passively.
+            </div>
+            <br />
+            <br />
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href =
+                  "https://alibi-invitation.typeform.com/to/T4AYCroA";
               }}
             >
-              <input
-                style={{
-                  paddingTop: "15px",
-                  paddingBottom: "5px",
-                  paddingLeft: "5px",
-                  border: "none",
-                  fontSize: "15px",
-                  border: "2px solid #06069A",
-                  width: "200px",
-                  fontFamily: "fira mono",
-                }}
-                type="email"
-                name="invitation code"
-                placeholder="invitation code"
-                onChange={(e) => {
-                  setShowA(true);
-                  setInput(e.target.value);
-                }}
-                value={input}
-              />
-              <button
-                style={{
-                  border: "none",
-                  backgroundColor: "#06069A",
-                  color: "white",
-                  fontFamily: "fira mono",
-                  paddingTop: "9px",
-                  fontSize: "15px",
-                }}
-                onClick={() => confirmInvitation()}
-              >
-                Submit
-              </button>
-            </div>
-            <Alibi
-              onMouseEnter={() => setShowA(true)}
-              onMouseLeave={() => setShowA(false)}
-              pad={window.innerWidth / 5}
-              x={random[0][0]}
-              y={random[0][1]}
-            >
-              A
-            </Alibi>
-            <Alibi
-              onMouseEnter={() => setShowB(true)}
-              onMouseLeave={() => setShowB(false)}
-              pad={window.innerWidth / 5}
-              x={random[1][0]}
-              y={random[1][1]}
-            >
-              L
-            </Alibi>
-            <Alibi
-              onMouseEnter={() => setShowC(true)}
-              onMouseLeave={() => setShowC(false)}
-              pad={window.innerWidth / 5}
-              x={random[2][0]}
-              y={random[2][1]}
-            >
-              I
-            </Alibi>
-            <Alibi
-              onMouseEnter={() => setShowA(true)}
-              onMouseLeave={() => setShowA(false)}
-              pad={window.innerWidth / 5}
-              x={random[3][0]}
-              y={random[3][1]}
-            >
-              B
-            </Alibi>
-            <Alibi
-              onMouseEnter={() => setShowB(true)}
-              onMouseLeave={() => setShowB(false)}
-              pad={window.innerWidth / 5}
-              x={random[4][0]}
-              y={random[4][1]}
-            >
-              I
-            </Alibi>
+              Request an invitation
+            </Button>
+            <br />
           </div>
-          {A}
-          {B}
-          {C}
-        </div>
+        </>
       ) : (
         <div />
       )}

@@ -3,7 +3,7 @@ import { withRouter, useHistory } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import styles from "./pages.module.css";
 import styled from "styled-components";
-import Content from "../content/content";
+import EditContent from "../content/editcontent";
 
 const ProfileBody = ({ content, author }) => {
   let history = useHistory();
@@ -31,7 +31,8 @@ const ProfileBody = ({ content, author }) => {
               {content.map((p, i) => (
                 <div className={styles.flexGrid2}>
                   {p.published ? (
-                    <Content
+                    <EditContent
+                      publish={true}
                       key={i}
                       title={p.title[0].children[0].text}
                       text={p.text}
@@ -53,7 +54,8 @@ const ProfileBody = ({ content, author }) => {
               {content.map((p, i) => (
                 <div className={styles.flexGrid2}>
                   {p.published === false ? (
-                    <Content
+                    <EditContent
+                      publish={false}
                       title={p.title[0].children[0].text}
                       text={p.text}
                       author={author}
