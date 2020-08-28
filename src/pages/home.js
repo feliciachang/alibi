@@ -79,6 +79,20 @@ function Home() {
               id="untitled"
               mediaType="interactive"
             />
+            <Content
+              style={{ flex: 1 }}
+              title="Black Kosa"
+              author="Coupe Del Mar"
+              id="blackkosa"
+              mediaType="interactive"
+            />
+            <Content
+              style={{ flex: 1 }}
+              title="11pm"
+              author="Coupe Del Mar"
+              id="11pm"
+              mediaType="interactive"
+            />
           </div>
         </div>
         <div className={styles.title}>

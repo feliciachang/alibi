@@ -4,6 +4,8 @@ import P5Wrapper from "react-p5-wrapper";
 import wildann from "../sketches/wildann";
 import mist from "../sketches/mist";
 import untitled from "../sketches/untitled";
+import blackKosa from "../sketches/blackKosa";
+import ElvnPM from "../sketches/11pm";
 import styles from "./content.module.css";
 
 function Interactive(props) {
@@ -27,6 +29,10 @@ function Interactive(props) {
         return <P5Wrapper sketch={wildann}></P5Wrapper>;
       case "untitled":
         return <P5Wrapper sketch={untitled}></P5Wrapper>;
+      case "blackkosa":
+        return <P5Wrapper sketch={blackKosa}></P5Wrapper>;
+      case "11pm":
+        return <P5Wrapper sketch={ElvnPM}></P5Wrapper>;
     }
   };
 
