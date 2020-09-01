@@ -6,6 +6,7 @@ import mist from "../sketches/mist";
 import untitled from "../sketches/untitled";
 import blackKosa from "../sketches/blackKosa";
 import ElvnPM from "../sketches/11pm";
+import ElvnPM2 from "../sketches/11pm2";
 import styles from "./content.module.css";
 
 function Interactive(props) {
@@ -33,6 +34,8 @@ function Interactive(props) {
         return <P5Wrapper sketch={blackKosa}></P5Wrapper>;
       case "11pm":
         return <P5Wrapper sketch={ElvnPM}></P5Wrapper>;
+      case "11pm2":
+        return <P5Wrapper sketch={ElvnPM2}></P5Wrapper>;
     }
   };
 

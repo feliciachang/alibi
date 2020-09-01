@@ -93,6 +93,13 @@ function Home() {
               id="11pm"
               mediaType="interactive"
             />
+            <Content
+              style={{ flex: 1 }}
+              title="11pm and You're 1%"
+              author="Coupe Del Mar"
+              id="11pm2"
+              mediaType="interactive"
+            />
           </div>
         </div>
         <div className={styles.title}>
