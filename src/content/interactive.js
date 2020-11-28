@@ -7,7 +7,11 @@ import untitled from "../sketches/untitled";
 import blackKosa from "../sketches/blackKosa";
 import ElvnPM from "../sketches/11pm";
 import ElvnPM2 from "../sketches/11pm2";
-import RGBA from "../sketches/rgba";
+import R from "../sketches/rgba/r";
+import G from "../sketches/rgba/g";
+import B from "../sketches/rgba/b";
+import A from "../sketches/rgba/a";
+import EditorsNote from "../sketches/rgba/editors_note";
 import styles from "./content.module.css";
 
 function Interactive(props) {
@@ -37,8 +41,16 @@ function Interactive(props) {
         return <P5Wrapper sketch={ElvnPM}></P5Wrapper>;
       case "11pm2":
         return <P5Wrapper sketch={ElvnPM2}></P5Wrapper>;
+      case "r":
+        return <P5Wrapper sketch={R}></P5Wrapper>;
+      case "g":
+        return <P5Wrapper sketch={G}></P5Wrapper>;
+      case "b":
+        return <P5Wrapper sketch={B}></P5Wrapper>;
+      case "a":
+        return <P5Wrapper sketch={A}></P5Wrapper>;
       case "rgba":
-        return <P5Wrapper sketch={RGBA}></P5Wrapper>;
+        return <P5Wrapper sketch={EditorsNote}></P5Wrapper>;
     }
   };
 

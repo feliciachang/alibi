@@ -69,28 +69,28 @@ function Home() {
               style={{ flex: 1 }}
               title="R"
               author="Felicia Chang"
-              id="rgba"
+              id="r"
               mediaType="interactive"
             />
             <Content
               style={{ flex: 1 }}
               title="G"
               author="Du Shaunte Halloway"
-              id="rgba"
+              id="g"
               mediaType="interactive"
             />
             <Content
               style={{ flex: 1 }}
               title="B"
               author="Max Mulpagano"
-              id="rgba"
+              id="b"
               mediaType="interactive"
             />
             <Content
               style={{ flex: 1 }}
               title="A"
               author="Anthony Skinner"
-              id="rgba"
+              id="a"
               mediaType="interactive"
             />
           </div>
