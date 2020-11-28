@@ -54,6 +54,48 @@ function Home() {
           </div>
         )}
         <div className={styles.title}>
+          <button className={styles.button}>ISSUE 1: RGBA</button>
+        </div>
+        <div style={{ marginLeft: "10vw" }}>
+          <div className={styles.flexGrid}>
+            <Content
+              style={{ flex: 1 }}
+              title="The Editor's Note"
+              author="RGBA"
+              id="rgba"
+              mediaType="interactive"
+            />
+            <Content
+              style={{ flex: 1 }}
+              title="R"
+              author="Felicia Chang"
+              id="rgba"
+              mediaType="interactive"
+            />
+            <Content
+              style={{ flex: 1 }}
+              title="G"
+              author="Du Shaunte Halloway"
+              id="rgba"
+              mediaType="interactive"
+            />
+            <Content
+              style={{ flex: 1 }}
+              title="B"
+              author="Max Mulpagano"
+              id="rgba"
+              mediaType="interactive"
+            />
+            <Content
+              style={{ flex: 1 }}
+              title="A"
+              author="Anthony Skinner"
+              id="rgba"
+              mediaType="interactive"
+            />
+          </div>
+        </div>
+        <div className={styles.title}>
           <button className={styles.button}>Interactive</button>
         </div>
         <div style={{ marginLeft: "10vw" }}>
