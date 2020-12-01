@@ -1,7 +1,7 @@
 import * as p5 from "p5";
 import "p5/lib/addons/p5.sound";
 import "p5/lib/addons/p5.dom";
-import Elvn from "./assets/11pm.mp3";
+import Elvn from "./assets/pulpy.mp3";
 import tambora from "./assets/tambora.jpg";
 import painting from "./assets/painting.jpg";
 import photo2 from "./assets/photo2.jpg";
@@ -42,15 +42,17 @@ export default function ElvnPM(p) {
 
     // p.image(you, Math.floor(rms * window.innerWidth), 100, 200, 500);
     // // // Draw an ellipse with size based on volume
-    for (let i = -100; i < window.innerWidth + 100; i = i + 100) {
-      for (let j = -100; j < window.innerHeight + 100; j = j + 100) {
-        p.image(
-          rms > 0.3 ? img : pho,
-          i,
-          j,
-          i / 10 - (rms * window.innerHeight) / 2 / 4,
-          j / 10 - (rms * window.innerHeight) / 2 / 4
-        );
+    if (rms > 0.2) {
+      for (let i = -100; i < window.innerWidth + 100; i = i + 100) {
+        for (let j = -100; j < window.innerHeight + 100; j = j + 100) {
+          p.image(
+            rms > 0.3 ? img : pho,
+            i,
+            j,
+            (rms * window.innerHeight) / p.random(0, 10),
+            (rms * window.innerHeight) / p.random(0, 10)
+          );
+        }
       }
     }
     // if(p.frameCount > 4900){
@@ -69,9 +71,17 @@ export default function ElvnPM(p) {
       renderTeardrop();
     }
     p.noStroke();
-    p.fill(255, 255, 255, 2);
+    p.fill(200, 100, 200, 1);
     p.rect(0, 0, window.innerWidth, window.innerHeight);
-    p.image(you, p.mouseX - 300, p.mouseY - 500);
+    if (rms > 0.25) {
+      p.image(
+        you,
+        p.mouseX - 300,
+        p.mouseY - 500,
+        rms * window.innerWidth,
+        rms * window.innerWidth
+      );
+    }
     // if (rms > 0.3) {
     //   renderTeardrop2();
     // }

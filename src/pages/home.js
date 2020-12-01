@@ -130,7 +130,7 @@ function Home() {
             />
             <Content
               style={{ flex: 1 }}
-              title="11pm"
+              title="Pulpy"
               author="Coupe Del Mar"
               id="11pm"
               mediaType="interactive"
