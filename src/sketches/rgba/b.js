@@ -5,10 +5,12 @@ import rgby from "./assets/rbgy_ambience.mp3";
 import blue from "./assets/blue/blue_voices.mp3";
 import facetrash from "./assets/blue/bluetrashcropped.png";
 import gloves from "./assets/blue/gloves.png";
+import skyscreen from "./assets/blue/sky_screen.png";
 
 export default function B(p) {
   let particles = [];
-  let song, rms, song2, analyzer, img, img2, mic, fft, you, pho, voice;
+  let song, rms, song2, analyzer, img, img2, img3, mic, fft, you, pho, voice;
+  let cnvs;
 
   // this class describes the properties of a single particle.
   class Particle {
@@ -48,10 +50,11 @@ export default function B(p) {
     song2 = p.loadSound(blue);
     img = p.loadImage(facetrash);
     img2 = p.loadImage(gloves);
+    img3 = p.loadImage(skyscreen);
   };
 
   p.setup = () => {
-    p.createCanvas(window.innerWidth, window.innerHeight);
+    cnvs = p.createCanvas(window.innerWidth, window.innerHeight);
 
     for (let i = 0; i < window.innerHeight / 50; i++) {
       particles.push(new Particle());
@@ -74,34 +77,52 @@ export default function B(p) {
     song2.play();
   };
 
+  function stopSound() {
+    if (song.isPlaying()) {
+      song.pause();
+      song2.pause();
+    } else {
+      song.loop();
+      song2.loop();
+    }
+  }
+
   p.draw = () => {
+    cnvs.mousePressed(stopSound);
     let rms = analyzer.getLevel();
     let voicelevel = voice.getLevel();
-    p.background(0, 0, 200, 1);
+    p.background(0, 0, 150, 5);
     // p.image(you, Math.floor(rms * window.innerWidth), 100, 200, 500);
     // // // Draw an ellipse with size based on volume
-
-    for (let i = 0; i < window.innerWidth; i = i + 100) {
-      for (let j = 0; j < window.innerHeight; j = j + 100) {
-        p.image(
-          img,
-          i,
-          j,
-          i / 10 - voicelevel * window.innerHeight,
-          j / 10 - voicelevel * window.innerHeight
-        );
+    if (rms > 0.03) {
+      for (let i = 0; i < window.innerWidth; i = i + 200) {
+        for (let j = 0; j < window.innerHeight; j = j + 200) {
+          p.image(
+            img2,
+            i,
+            j,
+            i / 30 - rms * window.innerHeight > 0
+              ? 0
+              : i / 10 - rms * window.innerHeight * 2,
+            j / 30 - rms * window.innerHeight > 0
+              ? 0
+              : i / 10 - rms * window.innerHeight * 2
+          );
+        }
       }
     }
 
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].createParticle(img);
-      particles[i].moveParticle();
-    }
-
-    if (rms > 0.1) {
+    if (song.isPlaying()) {
       for (let i = 0; i < particles.length; i++) {
-        particles[i].createParticle(img2);
-        particles[i].moveParticleToCenter();
+        particles[i].createParticle(img);
+        particles[i].moveParticle();
+      }
+
+      if (rms > 0.1) {
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].createParticle(img3);
+          particles[i].moveParticleToCenter();
+        }
       }
     }
 

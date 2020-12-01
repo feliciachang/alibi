@@ -9,7 +9,19 @@ import smiley from "./assets/yellow/smiley.png";
 
 export default function A(p) {
   let particles = [];
-  let song, rms, song2, analyzer, img, img2, img3, mic, fft, you, pho, voice;
+  let song,
+    rms,
+    song2,
+    analyzer,
+    img,
+    img2,
+    img3,
+    mic,
+    fft,
+    you,
+    pho,
+    voice,
+    cnvs;
 
   // this class describes the properties of a single particle.
   class Particle {
@@ -53,7 +65,7 @@ export default function A(p) {
   };
 
   p.setup = () => {
-    p.createCanvas(window.innerWidth, window.innerHeight);
+    cnvs = p.createCanvas(window.innerWidth, window.innerHeight);
 
     for (let i = 0; i < window.innerHeight / 50; i++) {
       particles.push(new Particle());
@@ -76,7 +88,18 @@ export default function A(p) {
     song2.play();
   };
 
+  function stopSound() {
+    if (song.isPlaying()) {
+      song.pause();
+      song2.pause();
+    } else {
+      song.loop();
+      song2.loop();
+    }
+  }
+
   p.draw = () => {
+    cnvs.mousePressed(stopSound);
     let rms = analyzer.getLevel();
     let voicelevel = voice.getLevel();
     p.background(200, 200, 0, 1);
@@ -95,15 +118,17 @@ export default function A(p) {
     //   }
     // }
 
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].createParticle(img3);
-      particles[i].moveParticle();
-    }
-
-    if (rms > 0.1) {
+    if (song.isPlaying()) {
       for (let i = 0; i < particles.length; i++) {
-        particles[i].createParticle(img);
-        particles[i].moveParticleToCenter();
+        particles[i].createParticle(img3);
+        particles[i].moveParticle();
+      }
+
+      if (rms > 0.1) {
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].createParticle(img);
+          particles[i].moveParticleToCenter();
+        }
       }
     }
 
