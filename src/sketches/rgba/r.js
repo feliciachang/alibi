@@ -2,12 +2,13 @@ import * as p5 from "p5";
 import "p5/lib/addons/p5.sound";
 import "p5/lib/addons/p5.dom";
 import rgby from "./assets/rbgy_ambience.mp3";
-import facetrash from "./assets/blue/bluetrashcropped.png";
-import gloves from "./assets/blue/gloves.png";
+import red from "./assets/red/red_voices.mp3";
+import redcropped from "./assets/red/red-cropped.png";
+import pattern from "./assets/red/pattern.png";
 
-export default function B(p) {
+export default function R(p) {
   let particles = [];
-  let song, rms, song2, analyzer, img, img2, mic, fft, you, pho;
+  let song, rms, song2, analyzer, img, img2, img3, mic, fft, you, pho, voice;
 
   // this class describes the properties of a single particle.
   class Particle {
@@ -44,8 +45,9 @@ export default function B(p) {
 
   p.preload = () => {
     song = p.loadSound(rgby);
-    img = p.loadImage(facetrash);
-    img2 = p.loadImage(gloves);
+    song2 = p.loadSound(red);
+    img = p.loadImage(redcropped);
+    img2 = p.loadImage(pattern);
   };
 
   p.setup = () => {
@@ -62,18 +64,33 @@ export default function B(p) {
 
     // create a new Amplitude analyzer
     analyzer = new p5.Amplitude();
+    voice = new p5.Amplitude();
 
     // Patch the input to an volume analyzer
     analyzer.setInput(song);
+    voice.setInput(song2);
 
     song.play();
+    song2.play();
   };
 
   p.draw = () => {
     let rms = analyzer.getLevel();
-    p.background(0, 0, 200, 1);
-    // p.image(you, Math.floor(rms * window.innerWidth), 100, 200, 500);
-    // // // Draw an ellipse with size based on volume
+    let voicelevel = voice.getLevel();
+    p.background(200, 200, 0, 1);
+
+    for (let i = 0; i < window.innerWidth; i = i + 100) {
+      for (let j = 0; j < window.innerHeight; j = j + 100) {
+        p.image(
+          img2,
+          i,
+          j,
+          50 - voicelevel * window.innerHeight,
+          50 - voicelevel * window.innerHeight
+        );
+      }
+    }
+
     for (let i = 0; i < particles.length; i++) {
       particles[i].createParticle(img);
       particles[i].moveParticle();
@@ -81,6 +98,7 @@ export default function B(p) {
 
     if (rms > 0.1) {
       for (let i = 0; i < particles.length; i++) {
+        p.background(200, 0, 0, 1);
         particles[i].createParticle(img2);
         particles[i].moveParticleToCenter();
       }
