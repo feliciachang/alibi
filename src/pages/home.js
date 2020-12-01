@@ -68,28 +68,28 @@ function Home() {
             <Content
               style={{ flex: 1 }}
               title="Red"
-              author="Felicia Chang"
+              author=""
               id="r"
               mediaType="interactive"
             />
             <Content
               style={{ flex: 1 }}
               title="Green"
-              author="Du Shaunte Halloway"
+              author=""
               id="g"
               mediaType="interactive"
             />
             <Content
               style={{ flex: 1 }}
               title="Blue"
-              author="Max Mulpagano"
+              author=""
               id="b"
               mediaType="interactive"
             />
             <Content
               style={{ flex: 1 }}
               title="Yellow"
-              author="Anthony Skinner"
+              author=""
               id="a"
               mediaType="interactive"
             />
