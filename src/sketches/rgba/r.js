@@ -1,7 +1,7 @@
 import * as p5 from "p5";
 import "p5/lib/addons/p5.sound";
 import "p5/lib/addons/p5.dom";
-import rgby from "./assets/rbgy_ambience.mp3";
+import rgby from "./assets/upbeat_ambience.mp3";
 import red from "./assets/red/red_voices.mp3";
 import redcropped from "./assets/red/red-cropped.png";
 import pattern from "./assets/red/pattern.png";
