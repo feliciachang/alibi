@@ -98,7 +98,7 @@ export default function R(p) {
 
     if (rms > 0.1) {
       for (let i = 0; i < particles.length; i++) {
-        p.background(200, 0, 0, 1);
+        p.background(200, 0, 0, 10);
         particles[i].createParticle(img2);
         particles[i].moveParticleToCenter();
       }
