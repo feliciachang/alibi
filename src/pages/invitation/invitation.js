@@ -43,12 +43,16 @@ const Circle = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: #fff;
-  color: #06069a;
-  border-radius: 10px;
-  padding: 5px;
   border: none;
-  font-family: "fira mono";
+  background-color: #06069a;
+  color: white;
+  font-family: fira mono;
+  padding: 20px;
+  font-size: 20px;
+  :hover {
+    background-color: yellow;
+    color: #06069a;
+  }
 `;
 
 const Invitation = () => {
@@ -78,26 +82,9 @@ const Invitation = () => {
   }, [window.innerWidth, window.innerHeight]);
 
   const confirmInvitation = async () => {
-    let response = await fetch(
-      "https://alibi-backend.herokuapp.com/confirminvitation",
-      {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        method: "post",
-        body: JSON.stringify({ code: input }),
-      }
-    );
-    let db = await response.json();
-    console.log("db message", db.message);
-    if (db.message == true) {
-      setInvite("true");
-      sessionStorage.setItem("code", "true");
-      history.push({ pathname: "/" });
-    } else {
-      setFail(true);
-    }
+    setInvite("true");
+    sessionStorage.setItem("code", "true");
+    history.push({ pathname: "/" });
   };
 
   const getX = (i) => {
@@ -211,39 +198,7 @@ const Invitation = () => {
                   justifyContent: "baseline",
                 }}
               >
-                <input
-                  style={{
-                    paddingTop: "15px",
-                    paddingBottom: "5px",
-                    paddingLeft: "5px",
-                    border: "none",
-                    fontSize: "15px",
-                    border: "2px solid #06069A",
-                    width: "200px",
-                    fontFamily: "fira mono",
-                  }}
-                  type="email"
-                  name="invitation code"
-                  placeholder="invitation code"
-                  onChange={(e) => {
-                    setShowA(true);
-                    setInput(e.target.value);
-                  }}
-                  value={input}
-                />
-                <button
-                  style={{
-                    border: "none",
-                    backgroundColor: "#06069A",
-                    color: "white",
-                    fontFamily: "fira mono",
-                    paddingTop: "9px",
-                    fontSize: "15px",
-                  }}
-                  onClick={() => confirmInvitation()}
-                >
-                  Submit
-                </button>
+                <Button onClick={() => confirmInvitation()}>Enter</Button>
               </div>
               <Alibi
                 onMouseEnter={() => setShowA(true)}
@@ -294,36 +249,6 @@ const Invitation = () => {
             {A}
             {B}
             {C}
-          </div>
-          <div
-            style={{
-              position: "absolute",
-              top: "100%",
-              backgroundColor: "#06069A",
-              padding: "30%",
-              color: "white",
-              fontFamily: "fira mono",
-            }}
-          >
-            <div>Create | Play | Read | Relate</div>
-            <br />
-            <div>
-              Alibi is a creative platform for interactive media and writing,
-              seeking to disrupt the current information culture in which
-              content is consumed passively.
-            </div>
-            <br />
-            <br />
-            <Button
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.href =
-                  "https://alibi-invitation.typeform.com/to/T4AYCroA";
-              }}
-            >
-              Request an invitation
-            </Button>
-            <br />
           </div>
         </>
       ) : (
